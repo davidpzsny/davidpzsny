@@ -220,7 +220,43 @@ footer a:hover{color:var(--text)}
 /* ---------- Projects heading, then the project with its logo ---------- */
 .work{padding-top:120px}
 .big{margin-top:22px;font-size:clamp(64px,11vw,168px);font-weight:600;letter-spacing:-.065em;line-height:.88}
-.work .proj-head{margin-top:64px}
+/* Projects intro: the page zooms into the logo and the work comes out of it */
+.zoom-line{display:flex;align-items:center;gap:clamp(14px,2.2vw,34px);margin-top:22px}
+.zoom-line .big{margin-top:0}
+.zoom-anchor{display:block;flex:none;width:clamp(44px,8.4vw,132px);aspect-ratio:1}
+.zoom-anchor .mark{width:100%;height:100%}
+.zoom-hint{display:none}
+.zoom-portal .proj-head{margin-top:64px}
+.zl{display:none}
+.anim .zoom{height:310vh}
+.anim .zoom-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.anim .zoom-title,.anim .zoom-portal{position:absolute;inset:0;display:flex;align-items:center}
+.anim .zoom-title > .wrap,.anim .zoom-portal > .wrap{width:100%}
+.anim .zoom-title{transform-origin:var(--ox,50%) var(--oy,50%);will-change:transform,opacity}
+.anim .zoom-portal{background:radial-gradient(circle at var(--cx,50%) var(--cy,50%),rgba(139,92,246,var(--ga,.16)) 0,rgba(139,92,246,0) var(--gr,40vmax)),var(--bg);
+  clip-path:polygon(50% 50%,50% 50%,50% 50%,50% 50%,50% 50%,50% 50%)}
+.anim .zoom-portal .proj-head{margin-top:0}
+.anim .zoom-portal > .wrap{opacity:var(--pc,0);transform:translate3d(0,calc((1 - var(--pc,0)) * 36px),0) scale(calc(.9 + var(--pc,0) * .1));will-change:transform,opacity}
+.anim .zoom-anchor .mark{visibility:hidden}
+.anim .zl{display:block;position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.anim .zoom-hint{display:flex;align-items:center;gap:12px;margin-top:34px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.zoom-hint span{position:relative;width:1px;height:34px;background:var(--line);overflow:hidden}
+.zoom-hint span::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--text);animation:hint 1.8s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes hint{to{top:100%}}
+.js .zl .m-ring{stroke-dasharray:1 1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s cubic-bezier(.65,0,.35,1) .35s}
+.js .zl .m-b{opacity:0;transition:opacity .6s ease 1.15s}
+.js .zl .m-dot{transform:scale(0);transition:transform .5s cubic-bezier(.34,1.56,.64,1) 1.45s}
+.js .zl.in .m-ring{stroke-dashoffset:0}
+.js .zl.in .m-b{opacity:1}
+.js .zl.in .m-dot{transform:scale(1)}
+@media (max-height:520px){
+  .anim .zoom{height:auto}
+  .anim .zoom-pin{position:static;height:auto;overflow:visible}
+  .anim .zoom-title,.anim .zoom-portal{position:static;display:block}
+  .anim .zoom-portal{clip-path:none;background:none;padding-top:64px}
+  .anim .zl,.anim .zoom-hint{display:none}
+  .anim .zoom-anchor .mark{visibility:visible}
+}
 .proj-name{font-size:clamp(30px,3.4vw,44px);font-weight:600;letter-spacing:-.05em;line-height:1}
 .mark{width:64px;height:64px;flex:none;overflow:visible}
 .m-fill{fill:#0e0e10}

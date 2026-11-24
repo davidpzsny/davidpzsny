@@ -59,31 +59,54 @@
 
   <!-- work -->
   <section class="sec work" id="work">
-    <div class="wrap">
-      <p class="label rv"><i>01</i>Works</p>
-      <h2 class="big split" data-split="chars">Projects</h2>
-
-      <div class="proj-head">
-        <div>
-          <div class="proj-title rv" style="--d:120ms"><svg class="mark" viewBox="0 0 800 800" role="img" aria-label="Badge Database logo">
-            <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
-            <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
-            <text class="m-b" x="400" y="530" text-anchor="middle">B</text>
-            <circle class="m-dot" cx="610" cy="610" r="70"/>
-          </svg><h3 class="proj-name">Badge Database</h3></div>
-          <p class="lead rv" style="--d:200ms">Every Twitch badge, and exactly when to get it. A live database of Twitch global badges with countdowns and a schedule of every badge event, an X bot that announces new badges the moment they appear, and a 24/7 Twitch stream with 1,800+ followers.</p>
+    <!-- Projects: scrolling zooms into the logo, and the work comes out of it -->
+    <div class="zoom" id="zoom">
+      <div class="zoom-pin">
+        <div class="zoom-title">
+          <div class="wrap">
+            <p class="label rv"><i>01</i>Works</p>
+            <div class="zoom-line">
+              <h2 class="big split" data-split="chars">Projects</h2>
+              <span class="zoom-anchor"><svg class="mark" viewBox="0 0 800 800" aria-hidden="true">
+                <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
+                <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231"/>
+                <text class="m-b" x="400" y="530" text-anchor="middle">B</text>
+                <circle class="m-dot" cx="610" cy="610" r="70"/>
+              </svg></span>
+            </div>
+            <p class="zoom-hint" aria-hidden="true"><span></span>Scroll to step inside</p>
+          </div>
         </div>
-        <dl class="meta rv" style="--d:280ms">
-          <dt>Role</dt><dd>Design, code, operations</dd>
-          <dt>Year</dt><dd>2026</dd>
-          <dt>Status</dt><dd><span class="live"></span>Live</dd>
-        </dl>
+        <div class="zoom-portal">
+          <div class="wrap">
+            <div class="proj-head">
+              <div>
+                <div class="proj-title pz" style="--d:120ms"><svg class="mark" viewBox="0 0 800 800" role="img" aria-label="Badge Database logo">
+                  <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
+                  <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
+                  <text class="m-b" x="400" y="530" text-anchor="middle">B</text>
+                  <circle class="m-dot" cx="610" cy="610" r="70"/>
+                </svg><h3 class="proj-name">Badge Database</h3></div>
+                <p class="lead rv pz" style="--d:200ms">Every Twitch badge, and exactly when to get it. A live database of Twitch global badges with countdowns and a schedule of every badge event, an X bot that announces new badges the moment they appear, and a 24/7 Twitch stream with 1,800+ followers.</p>
+              </div>
+              <dl class="meta rv pz" style="--d:280ms">
+                <dt>Role</dt><dd>Design, code, operations</dd>
+                <dt>Year</dt><dd>2026</dd>
+                <dt>Status</dt><dd><span class="live"></span>Live</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <svg class="zl" aria-hidden="true"><g class="zl-g">
+          <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
+          <g class="zl-in"><text class="m-b" x="400" y="530" text-anchor="middle">B</text><circle class="m-dot" cx="610" cy="610" r="70"/></g>
+        </g></svg>
       </div>
     </div>
 
-    <!-- the site, page by page: macOS-style windows that rise into place while you scroll -->
+    <!-- the site, page by page: macOS-style windows that turn, roll and spin into place while you scroll -->
     <div class="wrap showcase" id="showcase">
-      <article class="sc-row sc-l">
+      <article class="sc-row sc-l" data-fx="turn" data-from="left">
         <div class="mac" aria-hidden="true">
           <div class="mac-bar"><span class="tl"><i></i><i></i><i></i></span><span class="mac-title">badgedatabase.com</span></div>
           <div class="viewport"><div class="canvas">
@@ -127,7 +150,7 @@
           <ul class="rv" style="--d:200ms"><li>Live badge counts</li><li>The 24/7 stream on the front page</li><li>This week's schedule</li></ul>
         </div>
       </article>
-      <article class="sc-row sc-r">
+      <article class="sc-row sc-r" data-fx="turn" data-from="right">
         <div class="mac" aria-hidden="true">
           <div class="mac-bar"><span class="tl"><i></i><i></i><i></i></span><span class="mac-title">badgedatabase.com/timeline/</span></div>
           <div class="viewport"><div class="canvas">
@@ -160,7 +183,7 @@
           <ul class="rv" style="--d:200ms"><li>Watch and sub rows</li><li>Free / paid filter and search</li><li>Week and 4-week views</li></ul>
         </div>
       </article>
-      <article class="sc-row sc-l">
+      <article class="sc-row sc-l" data-fx="drum">
         <div class="mac" aria-hidden="true">
           <div class="mac-bar"><span class="tl"><i></i><i></i><i></i></span><span class="mac-title">badgedatabase.com/badges/golden-iguana/</span></div>
           <div class="viewport"><div class="canvas">
@@ -199,7 +222,7 @@
           <ul class="rv" style="--d:200ms"><li>Live countdown</li><li>Chat preview with your own name</li><li>Add to calendar in one click</li></ul>
         </div>
       </article>
-      <article class="sc-row sc-r">
+      <article class="sc-row sc-r" data-fx="spin" data-from="right">
         <div class="mac" aria-hidden="true">
           <div class="mac-bar"><span class="tl"><i></i><i></i><i></i></span><span class="mac-title">badgedatabase.com/badges/</span></div>
           <div class="viewport"><div class="canvas">
@@ -220,7 +243,7 @@
           <ul class="rv" style="--d:200ms"><li>450+ badge sets</li><li>Sort by date, users or title</li><li>Pre-rendered pages for search engines</li></ul>
         </div>
       </article>
-      <article class="sc-row sc-l">
+      <article class="sc-row sc-l" data-fx="spin" data-from="left">
         <div class="mac" aria-hidden="true">
           <div class="mac-bar"><span class="tl"><i></i><i></i><i></i></span><span class="mac-title">x.com/BadgeDatabase</span></div>
           <div class="viewport"><div class="canvas">
@@ -246,7 +269,7 @@
           <ul class="rv" style="--d:200ms"><li>Added, live now and ending soon posts</li><li>Generated images</li><li>150+ badges posted</li></ul>
         </div>
       </article>
-      <article class="sc-row sc-r">
+      <article class="sc-row sc-r" data-fx="drum">
         <div class="mac" aria-hidden="true">
           <div class="mac-bar"><span class="tl"><i></i><i></i><i></i></span><span class="mac-title">twitch.tv/badge_db</span></div>
           <div class="viewport"><div class="canvas">
@@ -280,7 +303,7 @@
           <ul class="rv" style="--d:200ms"><li>Live clock and countdowns</li><li>Badges of the current category</li><li>2,000+ hours live</li></ul>
         </div>
       </article>
-      <article class="sc-row sc-l">
+      <article class="sc-row sc-l" data-fx="turn" data-from="left">
         <div class="mac" aria-hidden="true">
           <div class="mac-bar"><span class="tl"><i></i><i></i><i></i></span><span class="mac-title">badgedatabase.com/badges/golden-iguana/</span></div>
           <div class="viewport"><div class="canvas">

@@ -1,7 +1,8 @@
 /* Page motion. Decoration on top of a page that works without it:
    - .rv elements fade up and .io elements get "in" when they come into view; .split headlines rise word by word,
    - numbers count up, the badge ribbon runs (faster while you scroll), a light follows the cursor in the intro,
-   - the showcase windows spin in from the right, face you in the middle and spin out to the left,
+   - scrolling past "Projects" zooms into the logo and the work comes out of it,
+   - the showcase windows turn, roll or spin into place (each its own way), face you in the middle and leave the other way,
    - buttons lean towards the cursor, cards light up under it, countdowns and the overlay clock tick.
    Visitors who prefer reduced motion get the finished page straight away. */
 (function(){
@@ -51,8 +52,34 @@
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); if(e.target.matches('.count')) countUp(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-    $$('.rv, .io, .split, .count, .sc-row').forEach(function(el){ io.observe(el); });
+    $$('.rv, .io, .split, .count, .sc-row').forEach(function(el){ if(!el.classList.contains('pz')) io.observe(el); });
     requestAnimationFrame(function(){ $$('.hero .rv, .hero .split').forEach(function(el){ el.classList.add('in'); io.unobserve(el); }); });
+
+    /* ---------- Projects: zoom into the logo ---------- */
+    var zoom = document.getElementById('zoom'), zPin, zTitle, zPortal, zl, zlg, zlin, zAnchor, zPz = [], zOn = false, zA = {x: 0, y: 0}, zL = 64, zW = 0, zH = 0, zMax = 20, zlIn = false, pzIn = false;
+    if(zoom){
+      zPin = zoom.querySelector('.zoom-pin'); zTitle = zoom.querySelector('.zoom-title'); zPortal = zoom.querySelector('.zoom-portal');
+      zl = zoom.querySelector('.zl'); zlg = zoom.querySelector('.zl-g'); zlin = zoom.querySelector('.zl-in'); zAnchor = zoom.querySelector('.zoom-anchor');
+      zPz = $$('.pz', zoom);
+    }
+    function measureZoom(){
+      if(!zoom) return;
+      zOn = getComputedStyle(zPin).position === 'sticky';
+      zTitle.style.transform = 'none';
+      var pr = zPin.getBoundingClientRect(), ar = zAnchor.getBoundingClientRect();
+      zA = {x: ar.left - pr.left + ar.width / 2, y: ar.top - pr.top + ar.height / 2}; zL = ar.width || 64;
+      zW = zPin.clientWidth; zH = zPin.clientHeight;
+      zTitle.style.setProperty('--ox', zA.x.toFixed(1) + 'px'); zTitle.style.setProperty('--oy', zA.y.toFixed(1) + 'px');
+      // big enough that the inside of the hexagon covers the whole screen
+      zMax = Math.max(zW / 2, zH / 2 + zW / 4) * 1.06 / (316 * zL / 800);
+      if(!zOn){ zTitle.style.transform = zTitle.style.opacity = zTitle.style.visibility = ''; zPortal.style.clipPath = ''; }
+    }
+    function revealPortal(){
+      if(pzIn) return; pzIn = true;
+      zPz.forEach(function(el){ el.classList.add('in'); });
+    }
+    measureZoom(); addEventListener('resize', measureZoom);
+    if(document.fonts && document.fonts.ready) document.fonts.ready.then(measureZoom);
 
     /* ---------- numbers count up ---------- */
     $$('.count').forEach(function(el){ el.textContent = '0' + (el.dataset.suffix || ''); });
@@ -79,7 +106,34 @@
         ribbon.style.transform = 'translate3d(' + (-x).toFixed(2) + 'px,0,0)';
       }
       if(bar){ var max = root.scrollHeight - innerHeight; bar.style.setProperty('--sp', (max > 0 ? y / max : 0).toFixed(4)); }
-      // showcase: each window spins in from the right, faces you in the middle of the screen, and spins on out to the left
+      // Projects: the camera flies into the logo, the hexagon opens up and the project comes out of it
+      if(zoom){
+        var zr = zoom.getBoundingClientRect();
+        if(!zlIn && zr.top < innerHeight * 0.6){ zl.classList.add('in'); zlIn = true; }
+        if(!zOn){ if(zPortal.getBoundingClientRect().top < innerHeight * 0.88) revealPortal(); }
+        else if(zr.bottom > -50 && zr.top < innerHeight + 50){
+          var zp = clamp(-zr.top / Math.max(1, zr.height - innerHeight));
+          var z = clamp((zp - 0.06) / 0.72), ez = z * z * z * (z * (z * 6 - 15) + 10);
+          var s = Math.exp(Math.log(zMax) * ez), q = clamp(ez / 0.45); q = q * q * (3 - 2 * q);
+          var cx = zA.x + (zW / 2 - zA.x) * q, cy = zA.y + (zH / 2 - zA.y) * q, kk = zL / 800 * s;
+          var to = 1 - clamp((s - 1.08) / 1.7);
+          zTitle.style.transform = 'translate3d(' + (cx - zA.x).toFixed(1) + 'px,' + (cy - zA.y).toFixed(1) + 'px,0) scale(' + s.toFixed(4) + ')';
+          zTitle.style.opacity = to.toFixed(3); zTitle.style.visibility = to > 0 ? '' : 'hidden';
+          zlg.setAttribute('transform', 'translate(' + (cx - 400 * kk).toFixed(2) + ' ' + (cy - 400 * kk).toFixed(2) + ') scale(' + kk.toFixed(5) + ')');
+          zlin.style.opacity = (1 - clamp((s - 1.1) / 1)).toFixed(3);
+          zl.style.visibility = z >= 1 ? 'hidden' : '';
+          var hh = 338 * kk, hv = [[0, -hh], [hh, -hh / 2], [hh, hh / 2], [0, hh], [-hh, hh / 2], [-hh, -hh / 2]];
+          zPortal.style.clipPath = z >= 1 ? 'none' : 'polygon(' + hv.map(function(v){ return (cx + v[0]).toFixed(1) + 'px ' + (cy + v[1]).toFixed(1) + 'px'; }).join(',') + ')';
+          var pc = clamp((z - 0.42) / 0.46); pc = pc * pc * (3 - 2 * pc);
+          zPortal.style.setProperty('--pc', pc.toFixed(3));
+          zPortal.style.setProperty('--cx', cx.toFixed(1) + 'px'); zPortal.style.setProperty('--cy', cy.toFixed(1) + 'px');
+          zPortal.style.setProperty('--gr', Math.min(hh * 1.1, Math.max(zW, zH) * 0.42).toFixed(1) + 'px');
+          zPortal.style.setProperty('--ga', (0.26 - pc * 0.12).toFixed(3));
+          if(pc > 0.15) revealPortal();
+        }
+      }
+      // showcase: every window has its own way in (turn, drum roll or spin, from the left or the right),
+      // faces you in the middle of the screen and leaves the opposite way
       var vw = document.documentElement.clientWidth;
       for(var w = 0; w < rows.length; w++){
         var row = rows[w], m = macs[w], rr = row.getBoundingClientRect();
@@ -88,20 +142,24 @@
         var mc = stacked ? rr.top + m.offsetHeight / 2 : rr.top + rr.height / 2;
         var k = clamp((mc - innerHeight / 2) / (innerHeight * 0.8), -1, 1);   // +1 coming in from below, -1 leaving at the top
         var a = Math.max(0, Math.abs(k) - 0.14) / 0.86, e = (k < 0 ? -1 : 1) * a * a * (3 - 2 * a);   // flat for a while in the middle
-        m.style.setProperty('--tx', (e * vw * 0.42).toFixed(1) + 'px');
-        m.style.setProperty('--tz', (-Math.abs(e) * 420).toFixed(1) + 'px');
-        m.style.setProperty('--ty', (e * 40).toFixed(1) + 'px');
-        m.style.setProperty('--ry', (-e * 78).toFixed(2) + 'deg');
-        m.style.setProperty('--rx', (Math.abs(e) * 6).toFixed(2) + 'deg');
-        m.style.setProperty('--rz', (-e * 3).toFixed(2) + 'deg');
-        m.style.setProperty('--sc', (1 - Math.abs(e) * 0.12).toFixed(4));
+        var fx = row.dataset.fx || 'turn', d = row.dataset.from === 'left' ? -1 : 1, ae = Math.abs(e), f;
+        if(fx === 'drum') f = {tx: 0, ty: e * innerHeight * 0.16, tz: -ae * 380, ry: 0, rx: -e * 64, rz: 0, sc: 1 - ae * 0.08};
+        else if(fx === 'spin') f = {tx: e * d * vw * 0.3, ty: e * 70, tz: -ae * 620, ry: -e * d * 38, rx: ae * 8, rz: -e * d * 32, sc: 1 - ae * 0.3};
+        else f = {tx: e * d * vw * 0.42, ty: e * 40, tz: -ae * 420, ry: -e * d * 78, rx: ae * 6, rz: -e * d * 3, sc: 1 - ae * 0.12};
+        m.style.setProperty('--tx', f.tx.toFixed(1) + 'px');
+        m.style.setProperty('--tz', f.tz.toFixed(1) + 'px');
+        m.style.setProperty('--ty', f.ty.toFixed(1) + 'px');
+        m.style.setProperty('--ry', f.ry.toFixed(2) + 'deg');
+        m.style.setProperty('--rx', f.rx.toFixed(2) + 'deg');
+        m.style.setProperty('--rz', f.rz.toFixed(2) + 'deg');
+        m.style.setProperty('--sc', f.sc.toFixed(4));
         m.style.setProperty('--op', (1 - Math.pow(Math.abs(e), 3) * 0.85).toFixed(3));
         // the text steps aside while its window spins past it, and is fully there once the window faces you
         if(tx){
           var kt = stacked ? clamp(((rr.bottom - tx.offsetHeight / 2) - innerHeight / 2) / (innerHeight * 0.8), -1, 1) : k;
           var tq = clamp((Math.abs(kt) - 0.3) / 0.45), ts = tq * tq * (3 - 2 * tq);
           tx.style.setProperty('--top', (1 - ts * 0.9).toFixed(3));
-          tx.style.setProperty('--ttx', ((kt < 0 ? -1 : 1) * ts * Math.min(70, vw * 0.05)).toFixed(1) + 'px');
+          tx.style.setProperty('--ttx', (fx === 'drum' ? 0 : (kt < 0 ? -1 : 1) * d * ts * Math.min(70, vw * 0.05)).toFixed(1) + 'px');
         }
         if(Math.abs(k) < 0.3){ var sc0 = m.querySelector('.screen'); if(sc0 && !sc0.classList.contains('on')) sc0.classList.add('on'); }
       }
