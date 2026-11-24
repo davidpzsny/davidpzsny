@@ -41,7 +41,7 @@ img{display:block;max-width:100%}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--mint)}
 h1{font-size:clamp(42px,6vw,76px);font-weight:600;letter-spacing:-.055em;line-height:.98}
-h1 span{color:var(--muted)}
+h1 .mute{color:var(--muted)}
 h2{font-size:clamp(32px,4vw,48px);font-weight:600;letter-spacing:-.05em;line-height:1.02}
 h3{font-size:17px;font-weight:650;letter-spacing:-.015em}
 .lead{font-size:18px;color:var(--muted);max-width:56ch;line-height:1.65}
@@ -394,3 +394,83 @@ footer a:hover{color:var(--text)}
 @media (prefers-reduced-motion:reduce){
   .screen{transition:none}.bar{transition:none}.live{animation:none}
 }
+
+/* ===================================================================================
+   Header, ribbon and richer motion (v3)
+   =================================================================================== */
+/* header: menu left, the name centered in capitals, GitHub right */
+.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;gap:20px}
+.top nav{margin-left:-12px;justify-self:start}
+.name{justify-self:center;font-size:13px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;margin-right:-.34em}
+.top .pill-link{justify-self:end}
+.top nav a{position:relative}
+.top nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.top nav a:hover::after,.top nav a.on::after{transform:scaleX(1);transform-origin:left}
+.top nav a.on{color:var(--text)}
+.progress{position:absolute;left:0;right:0;bottom:-1px;height:1px;pointer-events:none}
+.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--purple-2));transform-origin:0 50%;transform:scaleX(var(--sp,0))}
+@media (max-width:720px){
+  .top .wrap{grid-template-columns:40px 1fr 40px}
+  .top nav{display:none}
+  .name{grid-column:2;font-size:12px;letter-spacing:.26em;margin-right:-.26em}
+  .top .pill-link{grid-column:3}
+}
+
+/* split headlines: words (or letters) rise out of a mask */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
+.split .w > span{display:inline-block}
+.js .split .w > span{transform:translateY(110%);transition:transform 1s cubic-bezier(.2,.8,.2,1) calc(var(--i,0) * var(--step,55ms) + var(--d,0ms))}
+.js .split.in .w > span{transform:none}
+.big{--step:45ms}
+
+/* badge ribbon */
+.ribbon{position:relative;overflow:hidden;padding:56px 0 8px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.ribbon .track{display:flex;width:max-content;will-change:transform}
+.ribbon .row{display:flex;gap:14px;padding-right:14px}
+.ribbon .tile{width:72px;height:72px;flex:none;display:grid;place-items:center;border-radius:18px;border:1px solid var(--line);background:var(--panel);
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .3s}
+.ribbon .tile img{width:40px;height:40px}
+.ribbon .tile:hover{transform:translateY(-6px) rotate(-4deg);border-color:rgba(139,92,246,.5)}
+html:not(.anim) .ribbon .track{animation:ribbon 60s linear infinite}
+@keyframes ribbon{to{transform:translateX(-50%)}}
+@media (max-width:720px){ .ribbon .tile{width:56px;height:56px;border-radius:14px}.ribbon .tile img{width:32px;height:32px} }
+
+/* counting numbers */
+.count{font-variant-numeric:tabular-nums}
+
+/* tour progress under the device's address bar */
+.tprog{height:2px;background:var(--line)}
+.tprog i{display:block;height:100%;background:var(--purple);transform-origin:0 50%;transform:scaleX(var(--tp,.1667));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.step h3{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.step:not(.on) h3{transform:translateX(-8px)}
+
+/* How it works: a line draws through the four steps */
+.flow{isolation:isolate}
+.flow::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,var(--line-2),rgba(139,92,246,.6),var(--line-2));
+  transform-origin:0 50%;transform:scaleX(1);z-index:-1}
+.js .flow.io::before{transform:scaleX(0);transition:transform 1.6s cubic-bezier(.65,0,.35,1) .2s}
+.js .flow.io.in::before{transform:scaleX(1)}
+@media (max-width:980px){ .flow::before{display:none} }
+/* cursor light on the cards */
+.node{overflow:hidden}
+.node::before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.14),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.node:hover::before{opacity:1}
+
+/* stack chips pop in one by one */
+.js .stack.io span{opacity:0;transform:translateY(12px) scale(.94);transition:opacity .5s ease calc(var(--i) * 45ms),transform .6s cubic-bezier(.34,1.56,.64,1) calc(var(--i) * 45ms),border-color .2s}
+.js .stack.io.in span{opacity:1;transform:none}
+.stack span:hover{border-color:var(--purple-2)}
+
+/* magnetic buttons (the shift is set by motion.js) */
+.btn.mag{transform:translate(var(--bx,0),var(--by,0));transition:background .15s,color .15s,border-color .15s,transform .35s cubic-bezier(.2,.7,.2,1)}
+
+/* large name in the footer */
+.giant-wrap{display:block!important;padding-top:24px;padding-bottom:8px}
+.giant{font-size:min(9.4vw,138px);font-weight:600;letter-spacing:-.045em;line-height:.9;text-transform:uppercase;color:#303035;white-space:nowrap;--step:40ms;user-select:none}
+.giant .w > span{transition-property:transform,color;transition-duration:1s,.4s}
+.giant:hover .w > span{color:var(--muted)}
+footer{padding-top:64px}
+@media (max-width:720px){ .giant{font-size:11.4vw} }
+
+@media (prefers-reduced-motion:reduce){ .ribbon .track{animation:none!important} }
