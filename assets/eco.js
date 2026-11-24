@@ -42,16 +42,28 @@
                        function(){ clearInterval(t); t = null; });
   })();
 
-  /* ---------- X feed ---------- */
+  /* ---------- X feed: new badges, events going live, events about to end ---------- */
   (function(){
     var card = document.querySelector('[data-eco="x"]'), feed = card && card.querySelector('.xfeed'); if(!feed) return;
+    var GTA = ['07fdf1d1-f160-4415-821e-391a90852db6', 'b7974da7-9af4-4ff6-8029-a9ca95b8b037', '015f3db0-1a3f-4e4a-970d-bea3adb3a331'];
+    var PD3 = ['e8ff781d-a445-4ed3-9790-9514a2eb45f0', '1495822f-a2a6-46f7-8e0b-48db278621d9', '8346da26-6494-4edb-945d-63a50a6e416b'];
+    var OSRS = ['95507c79-f87e-4a0d-9940-92af830b3b36', '8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6'];
+    var posts = [
+      ['add', 'Twitch global badge added: <b>Golden Iguana</b>', 'New badge', 'Golden Iguana', [BADGES[0][1]]],
+      ['live', '🟢 Live now: <b>Grand Theft Auto VI</b>. Watch 1 hour a day in the category for the Bling badges.', 'Live now', 'Grand Theft Auto VI', GTA],
+      ['add', 'Twitch global badge added: <b>RuneScape Santa Hat</b>', 'New badge', 'RuneScape Santa Hat', [BADGES[1][1]]],
+      ['end', '⏳ Ending soon: the <b>PAYDAY 3</b> badges end in 24 hours.', 'Ending soon', 'PAYDAY 3', PD3],
+      ['live', '🟢 Live now: <b>Old School RuneScape Hardcore Worlds</b>. Watch 1 hour or sub.', 'Live now', 'OSRS Hardcore Worlds', OSRS],
+      ['add', 'Twitch global badge added: <b>Minecraft Golden Frog</b>', 'New badge', 'Minecraft Golden Frog', [BADGES[2][1]]],
+      ['end', '⏳ Ending soon: <b>Warrior Jar Alexander</b> ends in 24 hours.', 'Ending soon', 'Warrior Jar Alexander', [BADGES[5][1]]]];
     var i = 0, t = null, mins = [1, 4, 9, 15, 23, 31];
     function post(animate){
-      var b = BADGES[i++ % BADGES.length], el = document.createElement('div');
+      var p = posts[i++ % posts.length], el = document.createElement('div'), cls = p[0] === 'add' ? '' : p[0];
       el.className = 'xp'; if(!animate) el.style.animation = 'none';
       el.innerHTML = '<img src="' + LOGO + '" alt=""><div class="xp-m"><div class="xp-h"><b>Badge Database</b>@BadgeDatabase · now</div>' +
-        '<div class="xp-t">Twitch global badge added: <b>' + esc(b[0]) + '</b></div>' +
-        '<div class="xp-card"><img src="' + B(b[1]) + '" alt=""><span><small>New Twitch global badge</small><b>' + esc(b[0]) + '</b></span></div></div>';
+        '<div class="xp-t">' + p[1] + '</div>' +
+        '<div class="xp-card ' + cls + '"><span class="imgs">' + p[4].map(function(id){ return '<img src="' + B(id) + '" alt="">'; }).join('') + '</span>' +
+        '<span><i class="xp-tag ' + cls + '">' + p[2] + '</i><b>' + esc(p[3]) + '</b></span></div></div>';
       feed.insertBefore(el, feed.firstChild);
       [].slice.call(feed.querySelectorAll('.xp-h')).forEach(function(h, k){ if(k) h.innerHTML = h.innerHTML.replace(/· .*$/, '· ' + mins[Math.min(k, mins.length - 1)] + 'm'); });
       while(feed.children.length > 5) feed.removeChild(feed.lastChild);
@@ -65,18 +77,26 @@
     var card = document.querySelector('[data-eco="discord"]'), body = card && card.querySelector('.dc-body'), typed = card && card.querySelector('.dc-typed'); if(!body) return;
     var row = function(img, name, right){ return '<div><img src="' + B(img) + '" alt="">' + esc(name) + '<em>' + esc(right) + '</em></div>'; };
     var script = [
+      ['alert', 'add', 'New badge', 'Golden Iguana', row(BADGES[0][1], 'Collect every GTA VI badge and emote', 'Sub')],
       ['nightowl', '/active', 'Active badges', row(BADGES[7][1], 'Grand Theft Auto VI', '6d left') + row('8346da26-6494-4edb-945d-63a50a6e416b', 'PAYDAY 3', '18h left') + row(BADGES[6][1], 'DOOM: The Dark Ages', '17d left')],
+      ['alert', 'live', 'Live now', 'Old School RuneScape Hardcore Worlds', row(BADGES[4][1], 'Watch 1 hour or sub', 'until Dec 1')],
       ['mira_', '/soon', 'Coming up', row(BADGES[5][1], 'Questline 4: Path of Shadows', 'Dec 1') + row(BADGES[1][1], 'RuneScape Santa Hat', 'December')],
+      ['alert', 'end', 'Ending soon', 'PAYDAY 3', row('e8ff781d-a445-4ed3-9790-9514a2eb45f0', 'Joy, Clover, KawaiiDozer, Pearl', '24h left')],
       ['kovi', '/badge golden iguana', 'Golden Iguana', row(BADGES[0][1], 'Collect every GTA VI badge and emote', 'Sub') + '<div>Ends Dec 1, 07:59 UTC</div>']];
     var T = timers(), step = 0, running = false;
     function add(html){ var m = document.createElement('div'); m.className = 'dc-m'; m.innerHTML = html; body.appendChild(m); while(body.children.length > 4) body.removeChild(body.firstChild); }
+    function botSays(inner, cls, tag){
+      add('<span class="dc-av"><img src="' + LOGO + '" alt=""></span><div><div class="dc-n">Badge Database<i>APP</i></div><div class="dc-embed ' + (cls || '') + '">' + (tag ? '<span class="tag">' + esc(tag) + '</span>' : '') + inner + '</div></div>');
+    }
     function exchange(s, instant){
+      if(s[0] === 'alert'){ botSays('<b>' + esc(s[3]) + '</b>' + s[4], s[1] === 'add' ? '' : s[1], s[2]); return; }
       add('<span class="dc-av">' + esc(s[0][0].toUpperCase()) + '</span><div><div class="dc-n">' + esc(s[0]) + '</div><span class="dc-cmd">' + esc(s[1]) + '</span></div>');
-      var reply = function(){ add('<span class="dc-av"><img src="' + LOGO + '" alt=""></span><div><div class="dc-n">Badge Database<i>APP</i></div><div class="dc-embed"><b>' + esc(s[2]) + '</b>' + s[3] + '</div></div>'); };
+      var reply = function(){ botSays('<b>' + esc(s[2]) + '</b>' + s[3]); };
       instant ? reply() : T.add(reply, 650);
     }
     function run(){
       var s = script[step++ % script.length], k = 0;
+      if(s[0] === 'alert'){ exchange(s); T.add(run, 2600); return; }
       (function type(){
         if(!running) return;
         if(k <= s[1].length){ typed.textContent = s[1].slice(0, k++); T.add(type, 70); return; }
@@ -85,7 +105,7 @@
     }
     whileVisible(card, function(once){
       if(once){ exchange(script[0], true); return; }
-      if(running) return; running = true; if(!body.children.length) exchange(script[2], true); T.add(run, 600);
+      if(running) return; running = true; if(!body.children.length) exchange(script[5], true); T.add(run, 600);
     }, function(){ running = false; T.clear(); typed.textContent = ''; });
   })();
 

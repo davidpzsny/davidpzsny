@@ -1,7 +1,7 @@
 /* Page motion. Decoration on top of a page that works without it:
    - .rv elements fade up and .io elements get "in" when they come into view; .split headlines rise word by word,
    - numbers count up, the badge ribbon runs (faster while you scroll), a light follows the cursor in the intro,
-   - the gallery turns vertical scrolling into a 3D row of pages that moves from right to left,
+   - the showcase windows lean in from their side and straighten up in the middle of the screen,
    - buttons lean towards the cursor, cards light up under it, countdowns and the overlay clock tick.
    Visitors who prefer reduced motion get the finished page straight away. */
 (function(){
@@ -34,37 +34,24 @@
     })(el);
   });
 
-  /* ---------- gallery sizing (also used without motion, then the pages simply stack) ---------- */
-  var gal = document.getElementById('gallery'), track = document.getElementById('gTrack'), cards = $$('.card'), N = cards.length;
-  var cw = 900, gap = 56;
-  function sizeGallery(){
-    if(!gal) return;
-    var vw = document.documentElement.clientWidth, vh = innerHeight, phone = vw < 720, moving = root.classList.contains('anim');
-    var cs;
-    if(moving){
-      cw = Math.min(980, vw * (phone ? 0.84 : 0.64)); cs = cw / 720;
-      var room = vh - 68 - 64 - (phone ? 160 : 150);                  // header, counter row, caption and air
-      if(40 + 450 * cs > room){ cs = Math.max(0.42, (room - 40) / 450); cw = cs * 720; }
-    } else { cw = Math.min(900, vw - (phone ? 40 : 80)); cs = cw / 720; }
-    gap = phone ? 18 : Math.round(Math.min(72, vw * 0.04));
-    gal.style.setProperty('--cw', cw.toFixed(1) + 'px'); gal.style.setProperty('--cs', cs.toFixed(4));
-    gal.style.setProperty('--gap', gap + 'px'); gal.style.setProperty('--gn', Math.max(1, N - 1));
-    if(track && moving) track.style.padding = '0 ' + ((vw - cw) / 2).toFixed(1) + 'px';
+  /* ---------- showcase windows: scale each page replica to its window ---------- */
+  var macs = $$('.mac'), rows = $$('.sc-row');
+  function sizeWindows(){
+    macs.forEach(function(m){ var w = m.clientWidth; if(w) m.style.setProperty('--cs', (w / 720).toFixed(4)); });
   }
-
   if(still){
     root.classList.remove('js');
-    sizeGallery(); addEventListener('resize', sizeGallery);
+    sizeWindows(); addEventListener('resize', sizeWindows);
     $$('.canvas .screen').forEach(function(s){ s.classList.add('on'); });
   } else {
     root.classList.add('anim');
-    sizeGallery(); addEventListener('resize', sizeGallery);
+    sizeWindows(); addEventListener('resize', sizeWindows);
 
     /* ---------- reveal on scroll ---------- */
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); if(e.target.matches('.count')) countUp(e.target); } });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-    $$('.rv, .io, .split, .count').forEach(function(el){ io.observe(el); });
+    $$('.rv, .io, .split, .count, .sc-row').forEach(function(el){ io.observe(el); });
     requestAnimationFrame(function(){ $$('.hero .rv, .hero .split').forEach(function(el){ el.classList.add('in'); io.unobserve(el); }); });
 
     /* ---------- numbers count up ---------- */
@@ -81,9 +68,7 @@
 
     /* ---------- one loop for everything tied to scrolling ---------- */
     var ribbon = document.getElementById('ribbon'), bar = document.querySelector('.progress');
-    var gNum = document.getElementById('gNum'), gBar = document.getElementById('gBar');
-    var lastY = scrollY, boost = 0, x = 0, last = performance.now(), cur = 0, shownNum = -1;
-    var dwell = function(t){ var f = Math.floor(t), r = t - f; return f + r * r * r * (r * (r * 6 - 15) + 10); };   // rests on each page, then moves on
+    var lastY = scrollY, boost = 0, x = 0, last = performance.now();
     function loop(now){
       var dt = Math.min(64, now - last); last = now;
       var y = scrollY, v = y - lastY; lastY = y;
@@ -94,22 +79,17 @@
         ribbon.style.transform = 'translate3d(' + (-x).toFixed(2) + 'px,0,0)';
       }
       if(bar){ var max = root.scrollHeight - innerHeight; bar.style.setProperty('--sp', (max > 0 ? y / max : 0).toFixed(4)); }
-      if(gal && track && N){
-        var r = gal.getBoundingClientRect(), run = gal.offsetHeight - innerHeight;
-        var p = clamp(-r.top / (run || 1)), target = Math.min(N - 1, dwell(p * (N - 1)));
-        cur += (target - cur) * 0.12; if(Math.abs(target - cur) < 0.0005) cur = target;
-        track.style.transform = 'translate3d(' + (-cur * (cw + gap)).toFixed(1) + 'px,0,0)';
-        cards.forEach(function(c, i){
-          var d = i - cur, a = Math.abs(d);
-          var rot = clamp(d, -1.4, 1.4) * -34, z = -Math.min(a, 2) * 260, sc = 1 - Math.min(a, 1.5) * 0.05;
-          c.style.transform = 'translateZ(' + z.toFixed(1) + 'px) rotateY(' + rot.toFixed(2) + 'deg) scale(' + sc.toFixed(4) + ')';
-          c.style.opacity = clamp(1 - Math.max(0, a - 0.9) * 0.75, 0.12, 1).toFixed(3);
-          var on = a < 0.5;
-          if(on !== c.classList.contains('on')){ c.classList.toggle('on', on); if(on){ var s = c.querySelector('.screen'); if(s) s.classList.add('on'); } }
-        });
-        var n = Math.round(cur);
-        if(n !== shownNum && gNum){ shownNum = n; gNum.textContent = String(n + 1).padStart(2, '0'); }
-        if(gBar) gBar.style.setProperty('--gp', (cur / Math.max(1, N - 1)).toFixed(4));
+      // showcase: a window leans back on its own side while it comes in and stands up straight in the middle
+      for(var w = 0; w < rows.length; w++){
+        var row = rows[w], m = macs[w], rr = row.getBoundingClientRect();
+        if(rr.bottom < -200 || rr.top > innerHeight + 200) continue;
+        var k = clamp(((rr.top + rr.height / 2) - innerHeight / 2) / innerHeight, -1, 1), side = row.classList.contains('sc-r') ? -1 : 1;
+        var ease = k * Math.abs(k) * 0.6 + k * 0.4;
+        m.style.setProperty('--ry', (side * ease * 16).toFixed(2) + 'deg');
+        m.style.setProperty('--rx', (ease * 9).toFixed(2) + 'deg');
+        m.style.setProperty('--ty', (ease * 60).toFixed(1) + 'px');
+        m.style.setProperty('--sc', (1 - Math.abs(ease) * 0.07).toFixed(4));
+        if(Math.abs(k) < 0.32){ var sc0 = m.querySelector('.screen'); if(sc0 && !sc0.classList.contains('on')) sc0.classList.add('on'); }
       }
       requestAnimationFrame(loop);
     }
