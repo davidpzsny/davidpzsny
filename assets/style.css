@@ -66,10 +66,11 @@ section{scroll-margin-top:84px}
 .sec-head{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;align-items:start}
 
 /* ---------- project ---------- */
-.proj-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end;margin-top:40px}
-.proj-title{display:flex;align-items:center;gap:18px}
-.proj-title img{width:56px;height:56px}
-.proj-head .lead{margin-top:22px}
+.proj-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(26px,3.2vw,44px) 40px;align-items:end;margin-top:40px}
+.proj-title{grid-column:1/-1;display:flex;align-items:center;gap:.22em;font-size:clamp(38px,7.6vw,112px)}
+.proj-title .mark{width:.98em;height:.98em}
+.proj-title .m-ring{stroke-width:60}
+.proj-head .lead{margin-top:0}
 .meta{display:grid;grid-template-columns:auto auto;gap:6px 22px;font-size:14px;white-space:nowrap}
 .meta dt{color:var(--dim);font-weight:600}.meta dd{color:var(--text);font-weight:600}
 
@@ -244,7 +245,8 @@ footer a:hover{color:var(--text)}
   .anim .zoom-hint{display:none}
 }
 
-.proj-name{font-size:clamp(30px,3.4vw,44px);font-weight:600;letter-spacing:-.05em;line-height:1}
+.proj-name{--step:32ms;font-size:1em;font-weight:600;letter-spacing:-.055em;line-height:.95;white-space:nowrap}
+.proj-name em{font-style:normal;color:var(--purple-2)}
 .mark{width:64px;height:64px;flex:none;overflow:visible}
 .m-fill{fill:#0e0e10}
 .m-ring{fill:none;stroke:var(--purple);stroke-width:44;stroke-linejoin:miter;stroke-dasharray:1 0;stroke-dashoffset:0}
