@@ -13,6 +13,7 @@
 <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preconnect" href="https://static-cdn.jtvnw.net">
 <link rel="stylesheet" href="assets/style.css">
+<script>document.documentElement.classList.add('js');setTimeout(function(){var r=document.documentElement;if(!r.classList.contains('anim'))r.classList.remove('js')},2500)</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -33,10 +34,10 @@
   <!-- intro -->
   <section class="hero">
     <div class="wrap">
-      <p class="eyebrow"><span class="dot"></span>Web developer · Hungary</p>
-      <h1>I design, build and run web&nbsp;products.<br><span>From the data to the last pixel.</span></h1>
-      <p class="lead">I'm Dávid, a Business Informatics student at Óbuda University. My main project is <b>Badge Database</b>, a live Twitch badge tracker with its own X bot and a 24/7 Twitch stream followed by <b>1,800+</b> people. I designed, built and automated all of it on my own.</p>
-      <div class="cta">
+      <p class="eyebrow rv"><span class="dot"></span>Web developer · Hungary</p>
+      <h1 class="rv" style="--d:90ms">I design, build and run web&nbsp;products.<br><span>From the data to the last pixel.</span></h1>
+      <p class="lead rv" style="--d:180ms">I'm Dávid, a Business Informatics student at Óbuda University. My main project is <b>Badge Database</b>, a live Twitch badge tracker with its own X bot and a 24/7 Twitch stream followed by <b>1,800+</b> people. I designed, built and automated all of it on my own.</p>
+      <div class="cta rv" style="--d:270ms">
         <a class="btn" href="#work">See the project</a>
         <a class="btn ghost" href="https://badgedatabase.com" target="_blank" rel="noopener">badgedatabase.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
@@ -44,11 +45,27 @@
   </section>
 
   <!-- work -->
-  <section class="sec" id="work">
-    <div class="wrap">
-      <p class="label"><i>01</i>Selected work</p>
+  <section class="sec work" id="work">
+    <div class="wrap"><p class="label"><i>01</i>Work</p></div>
 
-      <div class="proj-head">
+    <!-- scroll intro: the Badge Database logo draws itself while you scroll, then "Projects" -->
+    <div class="intro" id="intro">
+      <div class="stage">
+        <svg class="mark" viewBox="0 0 800 800" role="img" aria-label="Badge Database logo">
+          <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
+          <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
+          <text class="m-b" x="390" y="530" text-anchor="middle">B</text>
+          <circle class="m-dot" cx="610" cy="610" r="70"/>
+        </svg>
+        <h2 class="intro-word">Projects</h2>
+        <p class="intro-sub">Badge Database · website, X bot and 24/7 stream</p>
+        <span class="hint" aria-hidden="true">Scroll</span>
+      </div>
+    </div>
+
+    <div class="wrap">
+
+      <div class="proj-head rv">
         <div>
           <div class="proj-title"><img src="assets/badgedb-logo.png" width="56" height="56" alt="Badge Database logo"><h2>Badge Database</h2></div>
           <p class="lead">Every Twitch badge, and exactly when to get it. A live database of Twitch global badges with countdowns and a schedule of every badge event, an X bot that announces new badges the moment they appear, and a 24/7 Twitch stream with 1,800+ followers.</p>
@@ -61,7 +78,7 @@
       </div>
 
       <!-- product visual: a small replica of the site; the badge images load live from Twitch -->
-      <div class="shot" role="img" aria-label="Badge Database: the home page with badge counts and the schedule of current badge events">
+      <div class="shot rv" role="img" aria-label="Badge Database: the home page with badge counts and the schedule of current badge events">
         <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com</span></div>
         <div class="mini" aria-hidden="true">
           <div class="m-top">
@@ -94,32 +111,32 @@
       </div>
 
       <div class="nums">
-        <div><b>450+</b><span>Twitch global badge sets tracked, each with its own page</span></div>
-        <div><b>5,800+</b><span>channel campaign badges collected from live channels</span></div>
-        <div><b>75+</b><span>badge events documented with dates and objectives</span></div>
-        <div><b>1,800+</b><span>followers on the 24/7 Twitch stream</span></div>
-        <div><b>150+</b><span>new badges announced on X by the bot</span></div>
-        <div><b>15 min</b><span>between automatic updates of the whole site</span></div>
+        <div class="rv" style="--d:0ms"><b>450+</b><span>Twitch global badge sets tracked, each with its own page</span></div>
+        <div class="rv" style="--d:90ms"><b>5,800+</b><span>channel campaign badges collected from live channels</span></div>
+        <div class="rv" style="--d:180ms"><b>75+</b><span>badge events documented with dates and objectives</span></div>
+        <div class="rv" style="--d:0ms"><b>1,800+</b><span>followers on the 24/7 Twitch stream</span></div>
+        <div class="rv" style="--d:90ms"><b>150+</b><span>new badges announced on X by the bot</span></div>
+        <div class="rv" style="--d:180ms"><b>15 min</b><span>between automatic updates of the whole site</span></div>
       </div>
 
       <div class="built">
-        <article><span class="n">01</span><h3>The website</h3><p>Live countdowns, a schedule of every badge event, a page for each badge, search, light and dark themes, and a phone layout with its own navigation.</p></article>
-        <article><span class="n">02</span><h3>The bot</h3><p>A Python bot on GitHub Actions checks Twitch every 15 minutes, updates the data and rebuilds every page, so the site never needs a manual deploy.</p></article>
-        <article><span class="n">03</span><h3>X bot</h3><p>@BadgeDatabase on X is run by a bot: every new badge is posted with a generated image, and badge events get "now available" and "ending soon" posts. Events are also synced to Discord.</p></article>
-        <article><span class="n">04</span><h3>Reminders</h3><p>Visitors can ask for a browser notification when dates are announced, when a badge starts and before it ends, sent by my own push server.</p></article>
-        <article><span class="n">05</span><h3>24/7 Twitch stream</h3><p>A round-the-clock stream on twitch.tv/badge_db with 1,800+ followers, showing an overlay I built: live countdowns and the badges you can earn in the current category, updated without a restart.</p></article>
-        <article><span class="n">06</span><h3>Insights</h3><p>Badge popularity, statistics by month and year, and the most watched categories with the badges you can earn in each.</p></article>
+        <article class="rv" style="--d:0ms"><span class="n">01</span><h3>The website</h3><p>Live countdowns, a schedule of every badge event, a page for each badge, search, light and dark themes, and a phone layout with its own navigation.</p></article>
+        <article class="rv" style="--d:90ms"><span class="n">02</span><h3>The bot</h3><p>A Python bot on GitHub Actions checks Twitch every 15 minutes, updates the data and rebuilds every page, so the site never needs a manual deploy.</p></article>
+        <article class="rv" style="--d:180ms"><span class="n">03</span><h3>X bot</h3><p>@BadgeDatabase on X is run by a bot: every new badge is posted with a generated image, and badge events get "now available" and "ending soon" posts. Events are also synced to Discord.</p></article>
+        <article class="rv" style="--d:0ms"><span class="n">04</span><h3>Reminders</h3><p>Visitors can ask for a browser notification when dates are announced, when a badge starts and before it ends, sent by my own push server.</p></article>
+        <article class="rv" style="--d:90ms"><span class="n">05</span><h3>24/7 Twitch stream</h3><p>A round-the-clock stream on twitch.tv/badge_db with 1,800+ followers, showing an overlay I built: live countdowns and the badges you can earn in the current category, updated without a restart.</p></article>
+        <article class="rv" style="--d:180ms"><span class="n">06</span><h3>Insights</h3><p>Badge popularity, statistics by month and year, and the most watched categories with the badges you can earn in each.</p></article>
       </div>
 
       <div class="flow-wrap">
         <p class="label">How it works</p>
         <div class="flow">
-          <div class="node"><small>Source</small><b>Twitch</b><p>Badge sets, live channels and categories from the Twitch API.</p></div>
-          <div class="node main"><small>Automation</small><b>GitHub Actions bot</b><p>Python, every 15 minutes: finds what changed, adds the details, rebuilds.</p></div>
-          <div class="node"><small>Data &amp; pages</small><b>JSON + 450+ static pages</b><p>Kept in Git, so every change is traceable and easy to roll back.</p></div>
-          <div class="node"><small>Hosting</small><b>badgedatabase.com</b><p>GitHub Pages with its own domain, fast and free to run.</p></div>
+          <div class="rv node" style="--d:0ms"><small>Source</small><b>Twitch</b><p>Badge sets, live channels and categories from the Twitch API.</p></div>
+          <div class="rv node main" style="--d:90ms"><small>Automation</small><b>GitHub Actions bot</b><p>Python, every 15 minutes: finds what changed, adds the details, rebuilds.</p></div>
+          <div class="rv node" style="--d:180ms"><small>Data &amp; pages</small><b>JSON + 450+ static pages</b><p>Kept in Git, so every change is traceable and easy to roll back.</p></div>
+          <div class="rv node" style="--d:270ms"><small>Hosting</small><b>badgedatabase.com</b><p>GitHub Pages with its own domain, fast and free to run.</p></div>
         </div>
-        <div class="outs">
+        <div class="outs rv" style="--d:360ms">
           <div><b>X</b> · new badge posts</div>
           <div><b>Discord</b> · server events</div>
           <div><b>Web Push</b> · reminders</div>
@@ -129,13 +146,13 @@
 
       <div class="flow-wrap">
         <p class="label">Stack</p>
-        <div class="stack">
+        <div class="stack rv">
           <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>GitHub Actions</span><span>GitHub Pages</span>
           <span>Twitch API</span><span>X API</span><span>Discord API</span><span>Web Push</span><span>Oracle Cloud</span><span>OBS Studio</span>
         </div>
       </div>
 
-      <div class="links">
+      <div class="links rv">
         <a class="btn" href="https://badgedatabase.com" target="_blank" rel="noopener">Visit badgedatabase.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         <a class="btn ghost" href="https://twitch.tv/badge_db" target="_blank" rel="noopener">24/7 stream on Twitch</a>
         <a class="btn ghost" href="https://x.com/BadgeDatabase" target="_blank" rel="noopener">@BadgeDatabase on X</a>
@@ -148,9 +165,9 @@
     <div class="wrap sec-head">
       <p class="label"><i>02</i>About</p>
       <div>
-        <p class="lead">I'm a Business Informatics student at Óbuda University in Budapest, specialising in enterprise information systems, and I work as an IT intern alongside my studies.</p>
-        <p class="lead">I like building things end to end: deciding what a product should do, designing how it looks, writing the code and keeping it running. Badge Database started as a side project and grew into a website, a bot and a 24/7 stream that run on their own.</p>
-        <dl class="facts">
+        <p class="lead rv">I'm a Business Informatics student at Óbuda University in Budapest, specialising in enterprise information systems, and I work as an IT intern alongside my studies.</p>
+        <p class="lead rv" style="--d:90ms">I like building things end to end: deciding what a product should do, designing how it looks, writing the code and keeping it running. Badge Database started as a side project and grew into a website, a bot and a 24/7 stream that run on their own.</p>
+        <dl class="facts rv" style="--d:180ms">
           <div><dt>Studies</dt><dd>BSc Business Informatics<span>Óbuda University, Keleti Károly Faculty of Business and Management</span></dd></div>
           <div><dt>Currently</dt><dd>IT intern<span>alongside university</span></dd></div>
           <div><dt>Focus</dt><dd>Web development<span>automation, data, WordPress</span></dd></div>
@@ -164,7 +181,7 @@
     <div class="wrap sec-head">
       <p class="label"><i>03</i>Contact</p>
       <div>
-        <h2>Have a project in mind? Let's talk.</h2>
+        <h2 class="rv">Have a project in mind? Let's talk.</h2>
         <div class="cta">
           <a class="btn" href="https://github.com/davidpzsny" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         </div>
@@ -179,5 +196,6 @@
     <span>Designed and built by hand · <a href="https://badgedatabase.com" target="_blank" rel="noopener">badgedatabase.com</a></span>
   </div>
 </footer>
+<script src="assets/motion.js" defer></script>
 </body>
 </html>
