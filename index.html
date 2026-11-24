@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dávid Pozsonyi · Web developer</title>
-<meta name="description" content="Portfolio of Dávid Pozsonyi, a Business Informatics student and web developer from Hungary. Featured project: Badge Database, a live Twitch badge tracker.">
+<meta name="description" content="Portfolio of Dávid Pozsonyi, a Business Informatics student and web developer from Hungary. Featured project: Badge Database, a live Twitch badge tracker with an X bot and a 24/7 Twitch stream.">
 <meta name="theme-color" content="#0B0B0C">
 <meta property="og:title" content="Dávid Pozsonyi · Web developer">
 <meta property="og:description" content="I design, build and run web products. Featured: Badge Database, a live Twitch badge tracker.">
@@ -31,7 +31,7 @@
 </header>
 
 <main id="main">
-  <!-- intro -->
+  <!-- intro, with the product right underneath: it tilts upright as the page scrolls -->
   <section class="hero">
     <div class="wrap">
       <p class="eyebrow rv"><span class="dot"></span>Web developer · Hungary</p>
@@ -42,94 +42,233 @@
         <a class="btn ghost" href="https://badgedatabase.com" target="_blank" rel="noopener">badgedatabase.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
     </div>
+    <div class="wrap">
+      <div class="tilt" id="tilt">
+        <div class="shot rv" style="--d:360ms" role="img" aria-label="Badge Database home page: badge counts and the schedule of current badge events">
+          <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com</span></div>
+          <div class="mini" aria-hidden="true">
+            <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><span>Global Badges</span><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
+            <div class="m-body">
+              <div class="m-hero">
+                <div>
+                  <div class="m-eyebrow"><i></i>Live Twitch badge tracker</div>
+                  <div class="m-h">Every Twitch badge.<br><span>Exactly when to get it.</span></div>
+                </div>
+                <div class="m-stream"><div class="m-stream-h"><i></i>24/7 stream<span>twitch.tv/badge_db</span></div><div class="m-stream-v"><img src="assets/badgedb-logo.svg" alt=""></div></div>
+              </div>
+              <div class="m-stats">
+                <div><small><i></i>Active now</small><b>31</b></div>
+                <div style="--c:var(--amber)"><small><i></i>Upcoming</small><b>2</b></div>
+                <div style="--c:#64625D"><small><i></i>Date TBA</small><b>2</b></div>
+                <div style="--c:var(--purple)"><small><i></i>Free today</small><b>20</b></div>
+              </div>
+              <div class="sched">
+                <div class="s-head"><span>Badges available right now</span><span class="tag">12 active</span><span>This week</span></div>
+                <div class="s-days"><span>Mon</span><span class="today">Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><span>Mon</span></div>
+                <div class="s-rows">
+<div class="bar free" style="--d:0ms;width:47%"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/1495822f-a2a6-46f7-8e0b-48db278621d9/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt="" loading="lazy"><em>PAYDAY 3 (Watch)</em><small>3d left</small></div>
+<div class="bar paid" style="--d:70ms;width:73%"><img src="https://static-cdn.jtvnw.net/badges/v1/a080167b-6264-404b-b9b1-e5a68348299f/2" alt="" loading="lazy"><em>Warrior Jar Alexander</em><small>5d left</small></div>
+<div class="bar paid" style="--d:140ms"><img src="https://static-cdn.jtvnw.net/badges/v1/8dfb6f30-1ec1-497a-91e4-028a704b4f57/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/59d5bb2e-0d62-4116-a6bc-79cd5afe9246/2" alt="" loading="lazy"><em>World of Warcraft: Forever</em><small>6d left</small></div>
+<div class="bar free" style="--d:210ms"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/7498db8a-8085-4262-ac9c-b2d13591b75f/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"><em>Grand Theft Auto VI (Watch)</em><small>6d left</small></div>
+<div class="bar paid" style="--d:280ms"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/2acfc5b8-7907-4b05-9b30-e211a93ffc63/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/c7b8fc7d-7ebd-46e1-8f57-cc58ce51a9d1/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"><em>Grand Theft Auto VI (Subscribe)</em><small>6d left</small></div>
+<div class="bar paid" style="--d:350ms"><img src="https://static-cdn.jtvnw.net/badges/v1/80e404b7-673b-4ca8-ab69-1779f9685eec/2" alt="" loading="lazy"><em>DOOM: The Dark Ages</em><small>17d left</small></div>
+<div class="bar free" style="--d:420ms"><img src="https://static-cdn.jtvnw.net/badges/v1/602335f3-4d73-40f9-b8e2-5c5e25f32d62/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/ddfbf317-aa77-482e-a99d-eb975deb2fe7/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/f68e567f-67cf-4d4a-8c3e-a0dcee42f095/2" alt="" loading="lazy"><em>Pokémon Night Out 2026</em><small>67d left</small></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- work -->
   <section class="sec work" id="work">
-    <div class="wrap"><p class="label"><i>01</i>Work</p></div>
-
-    <!-- scroll intro: the Badge Database logo draws itself while you scroll, then "Projects" -->
-    <div class="intro" id="intro">
-      <div class="stage">
-        <svg class="mark" viewBox="0 0 800 800" role="img" aria-label="Badge Database logo">
-          <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
-          <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
-          <text class="m-b" x="390" y="530" text-anchor="middle">B</text>
-          <circle class="m-dot" cx="610" cy="610" r="70"/>
-        </svg>
-        <h2 class="intro-word">Projects</h2>
-        <p class="intro-sub">Badge Database · website, X bot and 24/7 stream</p>
-        <span class="hint" aria-hidden="true">Scroll</span>
-      </div>
-    </div>
-
     <div class="wrap">
+      <p class="label rv"><i>01</i>Work</p>
+      <h2 class="big rv" style="--d:80ms">Projects</h2>
 
-      <div class="proj-head rv">
+      <div class="proj-head">
         <div>
-          <div class="proj-title"><img src="assets/badgedb-logo.png" width="56" height="56" alt="Badge Database logo"><h2>Badge Database</h2></div>
-          <p class="lead">Every Twitch badge, and exactly when to get it. A live database of Twitch global badges with countdowns and a schedule of every badge event, an X bot that announces new badges the moment they appear, and a 24/7 Twitch stream with 1,800+ followers.</p>
+          <div class="proj-title rv" style="--d:120ms"><svg class="mark" viewBox="0 0 800 800" role="img" aria-label="Badge Database logo">
+            <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
+            <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
+            <text class="m-b" x="400" y="530" text-anchor="middle">B</text>
+            <circle class="m-dot" cx="610" cy="610" r="70"/>
+          </svg><h3 class="proj-name">Badge Database</h3></div>
+          <p class="lead rv" style="--d:200ms">Every Twitch badge, and exactly when to get it. A live database of Twitch global badges with countdowns and a schedule of every badge event, an X bot that announces new badges the moment they appear, and a 24/7 Twitch stream with 1,800+ followers.</p>
         </div>
-        <dl class="meta">
+        <dl class="meta rv" style="--d:280ms">
           <dt>Role</dt><dd>Design, code, operations</dd>
           <dt>Year</dt><dd>2026</dd>
-          <dt>Status</dt><dd>Live</dd>
+          <dt>Status</dt><dd><span class="live"></span>Live</dd>
         </dl>
       </div>
 
-      <!-- product visual: a small replica of the site; the badge images load live from Twitch -->
-      <div class="shot rv" role="img" aria-label="Badge Database: the home page with badge counts and the schedule of current badge events">
-        <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com</span></div>
-        <div class="mini" aria-hidden="true">
-          <div class="m-top">
-            <div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div>
-            <div class="m-nav"><b>Timeline</b><span>Global Badges</span><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div>
-          </div>
-          <div class="m-body">
-            <div class="m-h">Every Twitch badge.</div>
-            <div class="m-sub">Live countdowns for active badge drops, upcoming events and the full global archive.</div>
-            <div class="m-stats">
-              <div><small><i></i>Active now</small><b>31</b></div>
-              <div style="--c:var(--amber)"><small><i></i>Upcoming</small><b>2</b></div>
-              <div style="--c:#64625D"><small><i></i>Date TBA</small><b>2</b></div>
-              <div style="--c:var(--purple)"><small><i></i>Free today</small><b>20</b></div>
-            </div>
-            <div class="sched">
-              <div class="s-head"><span>Schedule</span><span class="tag">12 active</span><span>This week</span></div>
-              <div class="s-days"><span>Mon</span><span class="today">Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><span>Mon</span></div>
-              <div class="s-rows">
-                <div class="bar free" style="width:47%"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/1495822f-a2a6-46f7-8e0b-48db278621d9/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt=""><em>PAYDAY 3 (Watch)</em><small>3d left</small></div>
-                <div class="bar paid" style="width:73%"><img src="https://static-cdn.jtvnw.net/badges/v1/a080167b-6264-404b-b9b1-e5a68348299f/2" alt=""><em>Warrior Jar Alexander</em><small>5d left</small></div>
-                <div class="bar free"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/7498db8a-8085-4262-ac9c-b2d13591b75f/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt=""><em>Grand Theft Auto VI (Watch)</em><small>6d left</small></div>
-                <div class="bar paid"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/2acfc5b8-7907-4b05-9b30-e211a93ffc63/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/c7b8fc7d-7ebd-46e1-8f57-cc58ce51a9d1/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt=""><em>Grand Theft Auto VI (Subscribe)</em><small>6d left</small></div>
-                <div class="bar paid"><img src="https://static-cdn.jtvnw.net/badges/v1/80e404b7-673b-4ca8-ab69-1779f9685eec/2" alt=""><em>DOOM: The Dark Ages</em><small>17d left</small></div>
-                <div class="bar free" style="margin-bottom:0"><img src="https://static-cdn.jtvnw.net/badges/v1/602335f3-4d73-40f9-b8e2-5c5e25f32d62/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/ddfbf317-aa77-482e-a99d-eb975deb2fe7/2" alt=""><img src="https://static-cdn.jtvnw.net/badges/v1/f68e567f-67cf-4d4a-8c3e-a0dcee42f095/2" alt=""><em>Pokémon Night Out 2026</em><small>67d left</small></div>
+      <!-- feature tour: the screen on the right follows the text on the left -->
+      <div class="tour" id="tour">
+        <div class="tour-steps">
+          <article class="step on" data-step="0" data-url="badgedatabase.com/timeline/">
+            <span class="n">01 · Timeline</span>
+            <h3>Every badge event on one schedule</h3>
+            <p>Running and upcoming badge events with live countdowns, split into watch and sub rows, filterable by free or paid. Yesterday is always the first column, so nothing that just ended goes missing.</p>
+          </article>
+          <article class="step" data-step="1" data-url="badgedatabase.com/badges/golden-iguana/">
+            <span class="n">02 · Badge pages</span>
+            <h3>A page for every badge</h3>
+            <p>The objective, category, start and end, a live countdown, a preview of the badge next to your own name in chat, and one click to add it to your calendar.</p>
+          </article>
+          <article class="step" data-step="2" data-url="badgedatabase.com/badges/">
+            <span class="n">03 · Archive</span>
+            <h3>The full archive, searchable</h3>
+            <p>All 450+ global badge sets, sorted by date added, user count or title, with filters for free, paid, active, ending soon and upcoming. Each one is a pre-rendered page, so search engines find them too.</p>
+          </article>
+          <article class="step" data-step="3" data-url="x.com/BadgeDatabase">
+            <span class="n">04 · X bot</span>
+            <h3>Announced the moment it appears</h3>
+            <p>A bot posts every new Twitch badge to X with a generated image within minutes, and follows up with "now available" and "ending soon" posts for badge events. 150+ badges announced so far.</p>
+          </article>
+          <article class="step" data-step="4" data-url="twitch.tv/badge_db">
+            <span class="n">05 · 24/7 stream</span>
+            <h3>A stream that never sleeps</h3>
+            <p>An overlay I built for the round-the-clock Twitch stream: a live clock, the badges you can earn in the current category, and every event with its countdown. 1,800+ followers.</p>
+          </article>
+          <article class="step" data-step="5" data-url="badgedatabase.com/badges/golden-iguana/">
+            <span class="n">06 · Reminders</span>
+            <h3>Reminders that come to you</h3>
+            <p>Visitors can ask for a browser notification when dates are announced, when a badge starts and before it ends, sent by my own push server. No account needed.</p>
+          </article>
+        </div>
+
+        <div class="tour-view" aria-hidden="true">
+          <div class="device">
+            <div class="chrome"><i></i><i></i><i></i><span id="tourUrl">badgedatabase.com/timeline/</span></div>
+            <div class="screens">
+
+              <div class="screen on" data-screen="0">
+                <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><b>Timeline</b><span>Global Badges</span><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
+                <div class="sc-pad">
+                  <div class="sc-h">Timeline</div>
+                  <div class="sc-filters"><span class="on">All</span><span>Free</span><span>Sub / paid</span></div>
+                  <div class="sched">
+                    <div class="s-head"><span>Schedule</span><span class="tag">12 active</span><span>Week · 4 weeks</span></div>
+                    <div class="s-days"><span>Mon</span><span class="today">Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span><span>Mon</span></div>
+                    <div class="s-rows">
+<div class="bar free" style="--d:0ms;width:47%"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/1495822f-a2a6-46f7-8e0b-48db278621d9/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt="" loading="lazy"><em>PAYDAY 3 (Watch)</em><small>3d left</small></div>
+<div class="bar paid" style="--d:70ms;width:73%"><img src="https://static-cdn.jtvnw.net/badges/v1/a080167b-6264-404b-b9b1-e5a68348299f/2" alt="" loading="lazy"><em>Warrior Jar Alexander</em><small>5d left</small></div>
+<div class="bar paid" style="--d:140ms"><img src="https://static-cdn.jtvnw.net/badges/v1/8dfb6f30-1ec1-497a-91e4-028a704b4f57/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/59d5bb2e-0d62-4116-a6bc-79cd5afe9246/2" alt="" loading="lazy"><em>World of Warcraft: Forever</em><small>6d left</small></div>
+<div class="bar free" style="--d:210ms"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/7498db8a-8085-4262-ac9c-b2d13591b75f/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"><em>Grand Theft Auto VI (Watch)</em><small>6d left</small></div>
+<div class="bar paid" style="--d:280ms"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/2acfc5b8-7907-4b05-9b30-e211a93ffc63/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/c7b8fc7d-7ebd-46e1-8f57-cc58ce51a9d1/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"><em>Grand Theft Auto VI (Subscribe)</em><small>6d left</small></div>
+<div class="bar paid" style="--d:350ms"><img src="https://static-cdn.jtvnw.net/badges/v1/80e404b7-673b-4ca8-ab69-1779f9685eec/2" alt="" loading="lazy"><em>DOOM: The Dark Ages</em><small>17d left</small></div>
+<div class="bar free" style="--d:420ms"><img src="https://static-cdn.jtvnw.net/badges/v1/602335f3-4d73-40f9-b8e2-5c5e25f32d62/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/ddfbf317-aa77-482e-a99d-eb975deb2fe7/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/f68e567f-67cf-4d4a-8c3e-a0dcee42f095/2" alt="" loading="lazy"><em>Pokémon Night Out 2026</em><small>67d left</small></div>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+              <div class="screen" data-screen="1">
+                <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><b>Global Badges</b><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
+                <div class="sc-pad bp">
+                  <div class="bp-top">
+                    <div class="bp-img"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/3" alt="" loading="lazy"></div>
+                    <div>
+                      <div class="sc-crumb">Global Badges / Grand Theft Auto VI</div>
+                      <div class="sc-h">Golden Iguana</div>
+                      <div class="bp-tags"><i class="t-sub">sub</i><i class="t-live">active</i></div>
+                    </div>
+                  </div>
+                  <div class="bp-grid">
+                    <div class="bp-card">
+                      <div class="bp-row"><span>Objective</span><b>Collect every GTA VI badge and emote</b></div>
+                      <div class="bp-row"><span>Category</span><b>Grand Theft Auto VI</b></div>
+                      <div class="bp-row"><span>Ends</span><b data-countdown="2026-12-01T07:59:00Z">6d 20h 14m</b></div>
+                      <div class="bp-btns"><span class="b1">Remind me</span><span>Add to calendar</span></div>
+                    </div>
+                    <div class="bp-card chat">
+                      <small>See it next to your name</small>
+                      <div class="msg"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"><b>YourName</b>: gg, just got this badge!</div>
+                      <div class="msg light"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"><b>YourName</b>: gg, just got this badge!</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="screen" data-screen="2">
+                <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><b>Global Badges</b><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
+                <div class="sc-pad">
+                  <div class="sc-h">Twitch Global Badges</div>
+                  <div class="ar-bar"><span class="ar-search">Search badges…</span><span class="sc-filters"><span class="on">All</span><span>Free</span><span>Paid</span><span>Active</span><span>Ends soon</span></span></div>
+                  <div class="ar-grid"><div class="a-it" style="--d:0ms"><img src="https://static-cdn.jtvnw.net/badges/v1/2bee9264-647c-4bdc-921f-cb5e651b1c64/2" alt="" loading="lazy"><span><b>RuneScape Santa Hat</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:50ms"><img src="https://static-cdn.jtvnw.net/badges/v1/bf75cdff-7b3a-4ba6-a1d5-e00563b9877e/2" alt="" loading="lazy"><span><b>RuneScape Quest Icon</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:100ms"><img src="https://static-cdn.jtvnw.net/badges/v1/8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6/2" alt="" loading="lazy"><span><b>RuneScape Gnome Plush</b><i class="t-sub">sub</i></span></div><div class="a-it" style="--d:150ms"><img src="https://static-cdn.jtvnw.net/badges/v1/95507c79-f87e-4a0d-9940-92af830b3b36/2" alt="" loading="lazy"><span><b>RuneScape Bones</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:60ms"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"><span><b>Silver Chain</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:110ms"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"><span><b>Purple Chain</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:160ms"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"><span><b>Miami Chain</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:210ms"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"><span><b>Golden Iguana</b><i class="t-sub">sub</i></span></div><div class="a-it" style="--d:120ms"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"><span><b>Welcome 2 Miami</b><i class="t-sub">sub</i></span></div><div class="a-it" style="--d:170ms"><img src="https://static-cdn.jtvnw.net/badges/v1/8d2de51b-76ac-4680-89c8-89e710663b09/2" alt="" loading="lazy"><span><b>Minecraft Golden Frog</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:220ms"><img src="https://static-cdn.jtvnw.net/badges/v1/f7d0e088-2870-4b20-93e8-ab0fedfe50e4/2" alt="" loading="lazy"><span><b>Jordan x Space Jam</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:270ms"><img src="https://static-cdn.jtvnw.net/badges/v1/d2adf631-2045-4246-9c34-201487e809ae/2" alt="" loading="lazy"><span><b>Gallica</b><i class="t-sub">sub</i></span></div></div>
+                </div>
+              </div>
+
+              <div class="screen x" data-screen="3">
+                <div class="post">
+                  <div class="p-head"><img src="assets/badgedb-logo.png" alt=""><div><b>Badge Database</b><span>@BadgeDatabase · 2m</span></div><svg class="xl" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-7 8 8 10h-6l-4.7-6.2L5.5 21h-3l7.5-8.6L2.5 3h6l4.3 5.7z"/></svg></div>
+                  <p>Twitch global badge added: <b>Golden Iguana</b> 🦎</p>
+                  <div class="p-card">
+                    <div class="p-card-h"><img src="assets/badgedb-logo.png" alt="">New Twitch global badge</div>
+                    <div class="p-card-b"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/3" alt="" loading="lazy"><b>Golden Iguana</b></div>
+                    <div class="p-card-f"><span>badgedatabase.com</span><span>@BadgeDatabase</span><span>twitch.tv/badge_db</span></div>
+                  </div>
+                  <div class="p-acts"><span>↩ 12</span><span>⟲ 48</span><span>♡ 310</span></div>
+                  <div class="p-reply"><img src="assets/badgedb-logo.png" alt=""><span>Details: badgedatabase.com/badges/golden-iguana</span></div>
+                </div>
+              </div>
+
+              <div class="screen ov" data-screen="4">
+                <div class="ov-top">
+                  <div class="ov-clock"><small>November 24, 2026</small><b data-clock>12:00:00</b><span>UTC</span></div>
+                  <div class="ov-brand"><img src="assets/badgedb-logo.svg" alt="">Badge <em>Database</em></div>
+                  <div class="ov-avail"><small>Available here</small><div class="ov-chip"><span><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt="" loading="lazy"></span><em>Watch 1h a day</em></div></div>
+                </div>
+                <div class="ov-cols">
+                  <div class="ov-col">
+                    <small>Added in the last 14 days</small>
+                    <div class="ov-item"><img src="https://static-cdn.jtvnw.net/badges/v1/2bee9264-647c-4bdc-921f-cb5e651b1c64/2" alt="" loading="lazy"><span><b>RuneScape Santa Hat</b><em>Free · New</em></span></div>
+                    <div class="ov-item"><img src="https://static-cdn.jtvnw.net/badges/v1/8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6/2" alt="" loading="lazy"><span><b>RuneScape Gnome Plush</b><em>Paid · New</em></span></div>
+                    <div class="ov-item"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"><span><b>Golden Iguana</b><em>Paid</em></span></div>
+                  </div>
+                  <div class="ov-col">
+                    <small>Events</small>
+                    <div class="ov-ev"><div class="ov-bar">Active<span data-countdown="2026-12-01T07:59:00Z" data-prefix="Ends in ">Ends in 6d 20h</span></div><div class="ov-in"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"><b>Grand Theft Auto VI (Watch)</b></div></div>
+                    <div class="ov-ev"><div class="ov-bar hot">Ending soon<span>Ends in 18h 02m</span></div><div class="ov-in"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt="" loading="lazy"><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt="" loading="lazy"><b>PAYDAY 3</b></div></div>
+                  </div>
+                </div>
+                <div class="ov-live">Live</div>
+              </div>
+
+              <div class="screen nt" data-screen="5">
+                <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><b>Global Badges</b><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
+                <div class="sc-pad bp dimmed">
+                  <div class="bp-top">
+                    <div class="bp-img"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/3" alt="" loading="lazy"></div>
+                    <div><div class="sc-crumb">Global Badges / Grand Theft Auto VI</div><div class="sc-h">Golden Iguana</div>
+                    <div class="bp-btns"><span class="b1 done">✓ Reminder set</span><span>Add to calendar</span></div></div>
+                  </div>
+                </div>
+                <div class="toast">
+                  <img src="assets/badgedb-logo.png" alt="">
+                  <div><small>Badge Database · now</small><b>Golden Iguana ends in 24 hours</b><span>Last chance to earn it in Grand Theft Auto VI.</span></div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
 
       <div class="nums">
-        <div class="rv" style="--d:0ms"><b>450+</b><span>Twitch global badge sets tracked, each with its own page</span></div>
+        <div class="rv"><b>450+</b><span>Twitch global badge sets tracked, each with its own page</span></div>
         <div class="rv" style="--d:90ms"><b>5,800+</b><span>channel campaign badges collected from live channels</span></div>
         <div class="rv" style="--d:180ms"><b>75+</b><span>badge events documented with dates and objectives</span></div>
-        <div class="rv" style="--d:0ms"><b>1,800+</b><span>followers on the 24/7 Twitch stream</span></div>
+        <div class="rv"><b>1,800+</b><span>followers on the 24/7 Twitch stream</span></div>
         <div class="rv" style="--d:90ms"><b>150+</b><span>new badges announced on X by the bot</span></div>
         <div class="rv" style="--d:180ms"><b>15 min</b><span>between automatic updates of the whole site</span></div>
       </div>
 
-      <div class="built">
-        <article class="rv" style="--d:0ms"><span class="n">01</span><h3>The website</h3><p>Live countdowns, a schedule of every badge event, a page for each badge, search, light and dark themes, and a phone layout with its own navigation.</p></article>
-        <article class="rv" style="--d:90ms"><span class="n">02</span><h3>The bot</h3><p>A Python bot on GitHub Actions checks Twitch every 15 minutes, updates the data and rebuilds every page, so the site never needs a manual deploy.</p></article>
-        <article class="rv" style="--d:180ms"><span class="n">03</span><h3>X bot</h3><p>@BadgeDatabase on X is run by a bot: every new badge is posted with a generated image, and badge events get "now available" and "ending soon" posts. Events are also synced to Discord.</p></article>
-        <article class="rv" style="--d:0ms"><span class="n">04</span><h3>Reminders</h3><p>Visitors can ask for a browser notification when dates are announced, when a badge starts and before it ends, sent by my own push server.</p></article>
-        <article class="rv" style="--d:90ms"><span class="n">05</span><h3>24/7 Twitch stream</h3><p>A round-the-clock stream on twitch.tv/badge_db with 1,800+ followers, showing an overlay I built: live countdowns and the badges you can earn in the current category, updated without a restart.</p></article>
-        <article class="rv" style="--d:180ms"><span class="n">06</span><h3>Insights</h3><p>Badge popularity, statistics by month and year, and the most watched categories with the badges you can earn in each.</p></article>
-      </div>
-
       <div class="flow-wrap">
-        <p class="label">How it works</p>
+        <p class="label rv">How it works</p>
         <div class="flow">
           <div class="rv node" style="--d:0ms"><small>Source</small><b>Twitch</b><p>Badge sets, live channels and categories from the Twitch API.</p></div>
           <div class="rv node main" style="--d:90ms"><small>Automation</small><b>GitHub Actions bot</b><p>Python, every 15 minutes: finds what changed, adds the details, rebuilds.</p></div>
@@ -145,7 +284,7 @@
       </div>
 
       <div class="flow-wrap">
-        <p class="label">Stack</p>
+        <p class="label rv">Stack</p>
         <div class="stack rv">
           <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>GitHub Actions</span><span>GitHub Pages</span>
           <span>Twitch API</span><span>X API</span><span>Discord API</span><span>Web Push</span><span>Oracle Cloud</span><span>OBS Studio</span>
@@ -163,7 +302,7 @@
   <!-- about -->
   <section class="sec about" id="about">
     <div class="wrap sec-head">
-      <p class="label"><i>02</i>About</p>
+      <p class="label rv"><i>02</i>About</p>
       <div>
         <p class="lead rv">I'm a Business Informatics student at Óbuda University in Budapest, specialising in enterprise information systems, and I work as an IT intern alongside my studies.</p>
         <p class="lead rv" style="--d:90ms">I like building things end to end: deciding what a product should do, designing how it looks, writing the code and keeping it running. Badge Database started as a side project and grew into a website, a bot and a 24/7 stream that run on their own.</p>
@@ -179,10 +318,10 @@
   <!-- contact -->
   <section class="sec contact" id="contact">
     <div class="wrap sec-head">
-      <p class="label"><i>03</i>Contact</p>
+      <p class="label rv"><i>03</i>Contact</p>
       <div>
         <h2 class="rv">Have a project in mind? Let's talk.</h2>
-        <div class="cta">
+        <div class="cta rv" style="--d:90ms">
           <a class="btn" href="https://github.com/davidpzsny" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         </div>
       </div>
