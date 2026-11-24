@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>David Pozsonyi · Web developer</title>
-<meta name="description" content="Portfolio of David Pozsonyi, web developer from Hungary. Featured project: Badge Database, a live Twitch badge tracker with an X bot and a 24/7 Twitch stream.">
+<title>David Pozsonyi · Web design &amp; development</title>
+<meta name="description" content="David Pozsonyi builds modern websites, web apps and automations that run on their own. Featured work: Badge Database, a live Twitch badge tracker with an X bot and a 24/7 stream.">
 <meta name="theme-color" content="#0B0B0C">
-<meta property="og:title" content="David Pozsonyi · Web developer">
-<meta property="og:description" content="I design, build and run web products. Featured: Badge Database, a live Twitch badge tracker.">
+<meta property="og:title" content="David Pozsonyi · Web design &amp; development">
+<meta property="og:description" content="Modern websites, web apps and automations that run on their own.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -22,6 +22,7 @@
   <div class="wrap">
     <nav aria-label="Main">
       <a href="#work">Work</a>
+      <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -32,22 +33,64 @@
 </header>
 
 <main id="main">
-  <!-- intro, with the product right underneath: it tilts upright as the page scrolls -->
+  <!-- intro -->
   <section class="hero">
+    <div class="glow" aria-hidden="true"><i></i><i></i></div>
+    <div class="grid-bg" aria-hidden="true"></div>
     <div class="wrap">
-      <p class="eyebrow rv" style="--d:0ms"><span class="dot"></span>Web developer · Hungary</p>
-      <h1 class="split" data-split="words">I design, build and run web&nbsp;products.<br><span class="mute">From the data to the last pixel.</span></h1>
-      <p class="lead rv" style="--d:380ms">I'm David. My main project is <b>Badge Database</b>, a live Twitch badge tracker with its own X bot and a 24/7 Twitch stream with <b>2,000+ hours</b> live and <b>1,800+</b> followers. I designed, built and automated all of it on my own.</p>
-      <div class="cta rv" style="--d:480ms">
-        <a class="btn mag" href="#work">See the project</a>
-        <a class="btn ghost mag" href="https://badgedatabase.com" target="_blank" rel="noopener">badgedatabase.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <p class="eyebrow rv"><span class="dot"></span>Web design &amp; development · Hungary</p>
+      <h1 class="split" data-split="words">Modern websites<br>that work for&nbsp;you,<br><span class="mute">around the clock.</span></h1>
+      <div class="hero-row">
+        <p class="lead rv" style="--d:420ms">Design, code and automation from one hand. My own product, <b>Badge Database</b>, updates itself every 15 minutes, posts to X on its own and has streamed live for <b>2,000+ hours</b>.</p>
+        <div class="cta rv" style="--d:520ms">
+          <a class="btn mag" href="#contact">Start a project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="btn ghost mag" href="#work">See the work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+        </div>
+      </div>
+      <ul class="proof rv" style="--d:640ms" aria-label="Badge Database in numbers">
+        <li><b>2,000+</b> hours live</li><li><b>1,800+</b> followers</li><li><b>450+</b> pages that update themselves</li><li><b>24/7</b> automated</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- work -->
+  <section class="sec work" id="work">
+    <div class="wrap">
+      <p class="label rv"><i>01</i>Work</p>
+      <h2 class="big split" data-split="chars">Projects</h2>
+
+      <div class="proj-head">
+        <div>
+          <div class="proj-title rv" style="--d:120ms"><svg class="mark" viewBox="0 0 800 800" role="img" aria-label="Badge Database logo">
+            <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
+            <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
+            <text class="m-b" x="400" y="530" text-anchor="middle">B</text>
+            <circle class="m-dot" cx="610" cy="610" r="70"/>
+          </svg><h3 class="proj-name">Badge Database</h3></div>
+          <p class="lead rv" style="--d:200ms">Every Twitch badge, and exactly when to get it. A live database of Twitch global badges with countdowns and a schedule of every badge event, an X bot that announces new badges the moment they appear, and a 24/7 Twitch stream with 1,800+ followers.</p>
+        </div>
+        <dl class="meta rv" style="--d:280ms">
+          <dt>Role</dt><dd>Design, code, operations</dd>
+          <dt>Year</dt><dd>2026</dd>
+          <dt>Status</dt><dd><span class="live"></span>Live</dd>
+        </dl>
       </div>
     </div>
-    <div class="wrap">
-      <div class="tilt" id="tilt">
-        <div class="shot rv" style="--d:560ms" role="img" aria-label="Badge Database home page: badge counts and the schedule of current badge events">
-          <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com</span></div>
-          <div class="mini" aria-hidden="true">
+
+    <!-- the site, page by page: 3D cards that move from right to left while you scroll -->
+    <div class="gallery" id="gallery">
+      <div class="g-pin">
+        <div class="wrap g-top">
+          <span class="g-count"><b id="gNum">01</b><span>/ 07</span></span>
+          <div class="g-bar"><i id="gBar"></i></div>
+          <span class="g-hint">Scroll</span>
+        </div>
+        <div class="g-stage"><div class="g-track" id="gTrack">
+          <figure class="card" data-i="0">
+            <div class="frame">
+              <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com</span></div>
+              <div class="viewport"><div class="canvas" aria-hidden="true">
+<div class="screen home"><div class="mini" aria-hidden="true">
             <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><span>Global Badges</span><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
             <div class="m-body">
               <div class="m-hero">
@@ -77,80 +120,16 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- a ribbon of real Twitch badges, endlessly moving; faster while you scroll -->
-  <div class="ribbon" aria-hidden="true"><div class="track" id="ribbon"><div class="row"><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/7498db8a-8085-4262-ac9c-b2d13591b75f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2acfc5b8-7907-4b05-9b30-e211a93ffc63/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/c7b8fc7d-7ebd-46e1-8f57-cc58ce51a9d1/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2bee9264-647c-4bdc-921f-cb5e651b1c64/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/bf75cdff-7b3a-4ba6-a1d5-e00563b9877e/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/95507c79-f87e-4a0d-9940-92af830b3b36/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8d2de51b-76ac-4680-89c8-89e710663b09/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f7d0e088-2870-4b20-93e8-ab0fedfe50e4/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/d2adf631-2045-4246-9c34-201487e809ae/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/80e404b7-673b-4ca8-ab69-1779f9685eec/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1495822f-a2a6-46f7-8e0b-48db278621d9/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a1bf84a7-cebc-496b-acf2-411938b18d9f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a080167b-6264-404b-b9b1-e5a68348299f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8dfb6f30-1ec1-497a-91e4-028a704b4f57/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/59d5bb2e-0d62-4116-a6bc-79cd5afe9246/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/602335f3-4d73-40f9-b8e2-5c5e25f32d62/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/ddfbf317-aa77-482e-a99d-eb975deb2fe7/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f68e567f-67cf-4d4a-8c3e-a0dcee42f095/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1b9b6fbf-9100-4b2c-9bdf-8be0f1456ff9/2" alt="" loading="lazy"></span></div><div class="row"><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/7498db8a-8085-4262-ac9c-b2d13591b75f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2acfc5b8-7907-4b05-9b30-e211a93ffc63/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/c7b8fc7d-7ebd-46e1-8f57-cc58ce51a9d1/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2bee9264-647c-4bdc-921f-cb5e651b1c64/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/bf75cdff-7b3a-4ba6-a1d5-e00563b9877e/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/95507c79-f87e-4a0d-9940-92af830b3b36/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8d2de51b-76ac-4680-89c8-89e710663b09/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f7d0e088-2870-4b20-93e8-ab0fedfe50e4/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/d2adf631-2045-4246-9c34-201487e809ae/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/80e404b7-673b-4ca8-ab69-1779f9685eec/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1495822f-a2a6-46f7-8e0b-48db278621d9/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a1bf84a7-cebc-496b-acf2-411938b18d9f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a080167b-6264-404b-b9b1-e5a68348299f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8dfb6f30-1ec1-497a-91e4-028a704b4f57/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/59d5bb2e-0d62-4116-a6bc-79cd5afe9246/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/602335f3-4d73-40f9-b8e2-5c5e25f32d62/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/ddfbf317-aa77-482e-a99d-eb975deb2fe7/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f68e567f-67cf-4d4a-8c3e-a0dcee42f095/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1b9b6fbf-9100-4b2c-9bdf-8be0f1456ff9/2" alt="" loading="lazy"></span></div></div></div>
-
-  <!-- work -->
-  <section class="sec work" id="work">
-    <div class="wrap">
-      <p class="label rv"><i>01</i>Work</p>
-      <h2 class="big split" data-split="chars">Projects</h2>
-
-      <div class="proj-head">
-        <div>
-          <div class="proj-title rv" style="--d:120ms"><svg class="mark" viewBox="0 0 800 800" role="img" aria-label="Badge Database logo">
-            <polygon class="m-fill" points="400,84 716,242 716,558 400,716 84,558 84,242"/>
-            <polygon class="m-ring" points="400,62 738,231 738,569 400,738 62,569 62,231" pathLength="1"/>
-            <text class="m-b" x="400" y="530" text-anchor="middle">B</text>
-            <circle class="m-dot" cx="610" cy="610" r="70"/>
-          </svg><h3 class="proj-name">Badge Database</h3></div>
-          <p class="lead rv" style="--d:200ms">Every Twitch badge, and exactly when to get it. A live database of Twitch global badges with countdowns and a schedule of every badge event, an X bot that announces new badges the moment they appear, and a 24/7 Twitch stream with 1,800+ followers.</p>
-        </div>
-        <dl class="meta rv" style="--d:280ms">
-          <dt>Role</dt><dd>Design, code, operations</dd>
-          <dt>Year</dt><dd>2026</dd>
-          <dt>Status</dt><dd><span class="live"></span>Live</dd>
-        </dl>
-      </div>
-
-      <!-- feature tour: the screen on the right follows the text on the left -->
-      <div class="tour" id="tour">
-        <div class="tour-steps">
-          <article class="step on" data-step="0" data-url="badgedatabase.com/timeline/">
-            <span class="n">01 · Timeline</span>
-            <h3>Every badge event on one schedule</h3>
-            <p>Running and upcoming badge events with live countdowns, split into watch and sub rows, filterable by free or paid. Yesterday is always the first column, so nothing that just ended goes missing.</p>
-          </article>
-          <article class="step" data-step="1" data-url="badgedatabase.com/badges/golden-iguana/">
-            <span class="n">02 · Badge pages</span>
-            <h3>A page for every badge</h3>
-            <p>The objective, category, start and end, a live countdown, a preview of the badge next to your own name in chat, and one click to add it to your calendar.</p>
-          </article>
-          <article class="step" data-step="2" data-url="badgedatabase.com/badges/">
-            <span class="n">03 · Archive</span>
-            <h3>The full archive, searchable</h3>
-            <p>All 450+ global badge sets, sorted by date added, user count or title, with filters for free, paid, active, ending soon and upcoming. Each one is a pre-rendered page, so search engines find them too.</p>
-          </article>
-          <article class="step" data-step="3" data-url="x.com/BadgeDatabase">
-            <span class="n">04 · X bot</span>
-            <h3>Announced the moment it appears</h3>
-            <p>A bot posts every new Twitch badge to X with a generated image within minutes, and follows up with "now available" and "ending soon" posts for badge events. 150+ badges announced so far.</p>
-          </article>
-          <article class="step" data-step="4" data-url="twitch.tv/badge_db">
-            <span class="n">05 · 24/7 stream</span>
-            <h3>A stream that never sleeps</h3>
-            <p>An overlay I built for the round-the-clock Twitch stream: a live clock, the badges you can earn in the current category, and every event with its countdown. 2,000+ hours live, 1,800+ followers.</p>
-          </article>
-          <article class="step" data-step="5" data-url="badgedatabase.com/badges/golden-iguana/">
-            <span class="n">06 · Reminders</span>
-            <h3>Reminders that come to you</h3>
-            <p>Visitors can ask for a browser notification when dates are announced, when a badge starts and before it ends, sent by my own push server. No account needed.</p>
-          </article>
-        </div>
-
-        <div class="tour-view" aria-hidden="true">
-          <div class="device">
-            <div class="chrome"><i></i><i></i><i></i><span id="tourUrl">badgedatabase.com/timeline/</span></div>
-            <div class="tprog"><i id="tourProg"></i></div>
-            <div class="screens">
-
-              <div class="screen on" data-screen="0">
+          </div></div>
+              </div></div>
+            </div>
+            <figcaption><span class="n">01 · Home</span><b>Every Twitch badge, exactly when to get it</b><span class="t">Live counts, the 24/7 stream and every running badge event on the front page.</span></figcaption>
+          </figure>
+          <figure class="card" data-i="1">
+            <div class="frame">
+              <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com/timeline/</span></div>
+              <div class="viewport"><div class="canvas" aria-hidden="true">
+<div class="screen" data-screen="0">
                 <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><b>Timeline</b><span>Global Badges</span><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
                 <div class="sc-pad">
                   <div class="sc-h">Timeline</div>
@@ -170,8 +149,15 @@
                   </div>
                 </div>
               </div>
-
-              <div class="screen" data-screen="1">
+              </div></div>
+            </div>
+            <figcaption><span class="n">02 · Timeline</span><b>Every badge event on one schedule</b><span class="t">Live countdowns, watch and sub rows, a free or paid filter, and yesterday always in view.</span></figcaption>
+          </figure>
+          <figure class="card" data-i="2">
+            <div class="frame">
+              <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com/badges/golden-iguana/</span></div>
+              <div class="viewport"><div class="canvas" aria-hidden="true">
+<div class="screen" data-screen="1">
                 <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><b>Global Badges</b><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
                 <div class="sc-pad bp">
                   <div class="bp-top">
@@ -197,8 +183,15 @@
                   </div>
                 </div>
               </div>
-
-              <div class="screen" data-screen="2">
+              </div></div>
+            </div>
+            <figcaption><span class="n">03 · Badge pages</span><b>A page for every badge</b><span class="t">Objective, category, dates, a live countdown and a preview of the badge next to your name.</span></figcaption>
+          </figure>
+          <figure class="card" data-i="3">
+            <div class="frame">
+              <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com/badges/</span></div>
+              <div class="viewport"><div class="canvas" aria-hidden="true">
+<div class="screen" data-screen="2">
                 <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><b>Global Badges</b><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
                 <div class="sc-pad">
                   <div class="sc-h">Twitch Global Badges</div>
@@ -206,8 +199,15 @@
                   <div class="ar-grid"><div class="a-it" style="--d:0ms"><img src="https://static-cdn.jtvnw.net/badges/v1/2bee9264-647c-4bdc-921f-cb5e651b1c64/2" alt="" loading="lazy"><span><b>RuneScape Santa Hat</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:50ms"><img src="https://static-cdn.jtvnw.net/badges/v1/bf75cdff-7b3a-4ba6-a1d5-e00563b9877e/2" alt="" loading="lazy"><span><b>RuneScape Quest Icon</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:100ms"><img src="https://static-cdn.jtvnw.net/badges/v1/8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6/2" alt="" loading="lazy"><span><b>RuneScape Gnome Plush</b><i class="t-sub">sub</i></span></div><div class="a-it" style="--d:150ms"><img src="https://static-cdn.jtvnw.net/badges/v1/95507c79-f87e-4a0d-9940-92af830b3b36/2" alt="" loading="lazy"><span><b>RuneScape Bones</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:60ms"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"><span><b>Silver Chain</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:110ms"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"><span><b>Purple Chain</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:160ms"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"><span><b>Miami Chain</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:210ms"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"><span><b>Golden Iguana</b><i class="t-sub">sub</i></span></div><div class="a-it" style="--d:120ms"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"><span><b>Welcome 2 Miami</b><i class="t-sub">sub</i></span></div><div class="a-it" style="--d:170ms"><img src="https://static-cdn.jtvnw.net/badges/v1/8d2de51b-76ac-4680-89c8-89e710663b09/2" alt="" loading="lazy"><span><b>Minecraft Golden Frog</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:220ms"><img src="https://static-cdn.jtvnw.net/badges/v1/f7d0e088-2870-4b20-93e8-ab0fedfe50e4/2" alt="" loading="lazy"><span><b>Jordan x Space Jam</b><i class="t-free">free</i></span></div><div class="a-it" style="--d:270ms"><img src="https://static-cdn.jtvnw.net/badges/v1/d2adf631-2045-4246-9c34-201487e809ae/2" alt="" loading="lazy"><span><b>Gallica</b><i class="t-sub">sub</i></span></div></div>
                 </div>
               </div>
-
-              <div class="screen x" data-screen="3">
+              </div></div>
+            </div>
+            <figcaption><span class="n">04 · Archive</span><b>The full archive, searchable</b><span class="t">450+ global badge sets with sorting and filters, each one a pre-rendered page that search engines find.</span></figcaption>
+          </figure>
+          <figure class="card" data-i="4">
+            <div class="frame">
+              <div class="chrome"><i></i><i></i><i></i><span>x.com/BadgeDatabase</span></div>
+              <div class="viewport"><div class="canvas" aria-hidden="true">
+<div class="screen x" data-screen="3">
                 <div class="post">
                   <div class="p-head"><img src="assets/badgedb-logo.png" alt=""><div><b>Badge Database</b><span>@BadgeDatabase · 2m</span></div><svg class="xl" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-7 8 8 10h-6l-4.7-6.2L5.5 21h-3l7.5-8.6L2.5 3h6l4.3 5.7z"/></svg></div>
                   <p>Twitch global badge added: <b>Golden Iguana</b> 🦎</p>
@@ -220,8 +220,15 @@
                   <div class="p-reply"><img src="assets/badgedb-logo.png" alt=""><span>Details: badgedatabase.com/badges/golden-iguana</span></div>
                 </div>
               </div>
-
-              <div class="screen ov" data-screen="4">
+              </div></div>
+            </div>
+            <figcaption><span class="n">05 · X bot</span><b>Announced the moment it appears</b><span class="t">A bot posts every new badge to X with a generated image, plus "now available" and "ending soon" posts.</span></figcaption>
+          </figure>
+          <figure class="card" data-i="5">
+            <div class="frame">
+              <div class="chrome"><i></i><i></i><i></i><span>twitch.tv/badge_db</span></div>
+              <div class="viewport"><div class="canvas" aria-hidden="true">
+<div class="screen ov" data-screen="4">
                 <div class="ov-top">
                   <div class="ov-clock"><small>November 24, 2026</small><b data-clock>12:00:00</b><span>UTC</span></div>
                   <div class="ov-brand"><img src="assets/badgedb-logo.svg" alt="">Badge <em>Database</em></div>
@@ -242,8 +249,15 @@
                 </div>
                 <div class="ov-live">Live</div>
               </div>
-
-              <div class="screen nt" data-screen="5">
+              </div></div>
+            </div>
+            <figcaption><span class="n">06 · 24/7 stream</span><b>A stream that never sleeps</b><span class="t">An overlay with a live clock, the badges of the current category and every countdown. 2,000+ hours live.</span></figcaption>
+          </figure>
+          <figure class="card" data-i="6">
+            <div class="frame">
+              <div class="chrome"><i></i><i></i><i></i><span>badgedatabase.com/badges/golden-iguana/</span></div>
+              <div class="viewport"><div class="canvas" aria-hidden="true">
+<div class="screen nt" data-screen="5">
                 <div class="m-top"><div class="m-brand"><img src="assets/badgedb-logo.png" alt="">Badge <em>Database</em></div><div class="m-nav"><span>Timeline</span><b>Global Badges</b><span>Channel Badges</span><span>Global Emotes</span><span>Insights</span></div></div>
                 <div class="sc-pad bp dimmed">
                   <div class="bp-top">
@@ -257,12 +271,17 @@
                   <div><small>Badge Database · now</small><b>Golden Iguana ends in 24 hours</b><span>Last chance to earn it in Grand Theft Auto VI.</span></div>
                 </div>
               </div>
-
+              </div></div>
             </div>
-          </div>
-        </div>
+            <figcaption><span class="n">07 · Reminders</span><b>Reminders that come to you</b><span class="t">Browser notifications when dates are announced, when a badge starts and before it ends.</span></figcaption>
+          </figure>
+        </div></div>
       </div>
+    </div>
 
+    <div class="ribbon" aria-hidden="true"><div class="track" id="ribbon"><div class="row"><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/7498db8a-8085-4262-ac9c-b2d13591b75f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2acfc5b8-7907-4b05-9b30-e211a93ffc63/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/c7b8fc7d-7ebd-46e1-8f57-cc58ce51a9d1/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2bee9264-647c-4bdc-921f-cb5e651b1c64/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/bf75cdff-7b3a-4ba6-a1d5-e00563b9877e/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/95507c79-f87e-4a0d-9940-92af830b3b36/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8d2de51b-76ac-4680-89c8-89e710663b09/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f7d0e088-2870-4b20-93e8-ab0fedfe50e4/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/d2adf631-2045-4246-9c34-201487e809ae/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/80e404b7-673b-4ca8-ab69-1779f9685eec/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1495822f-a2a6-46f7-8e0b-48db278621d9/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a1bf84a7-cebc-496b-acf2-411938b18d9f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a080167b-6264-404b-b9b1-e5a68348299f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8dfb6f30-1ec1-497a-91e4-028a704b4f57/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/59d5bb2e-0d62-4116-a6bc-79cd5afe9246/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/602335f3-4d73-40f9-b8e2-5c5e25f32d62/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/ddfbf317-aa77-482e-a99d-eb975deb2fe7/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f68e567f-67cf-4d4a-8c3e-a0dcee42f095/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1b9b6fbf-9100-4b2c-9bdf-8be0f1456ff9/2" alt="" loading="lazy"></span></div><div class="row"><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/62c3816a-87d6-4ca0-bce0-fca6bcfa719f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/07fdf1d1-f160-4415-821e-391a90852db6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2e7cf17d-12ba-41cd-8f9d-4d96c5f69d45/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b8b5b601-d707-41c9-9fb6-9610280285e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/b7974da7-9af4-4ff6-8029-a9ca95b8b037/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/7498db8a-8085-4262-ac9c-b2d13591b75f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/015f3db0-1a3f-4e4a-970d-bea3adb3a331/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1c51d343-754e-4fee-a717-ec95cafb5482/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2acfc5b8-7907-4b05-9b30-e211a93ffc63/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/c7b8fc7d-7ebd-46e1-8f57-cc58ce51a9d1/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/2bee9264-647c-4bdc-921f-cb5e651b1c64/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/bf75cdff-7b3a-4ba6-a1d5-e00563b9877e/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8b5bf6d2-3f89-4c24-a6c2-c5eda04ce1e6/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/95507c79-f87e-4a0d-9940-92af830b3b36/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8d2de51b-76ac-4680-89c8-89e710663b09/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f7d0e088-2870-4b20-93e8-ab0fedfe50e4/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/d2adf631-2045-4246-9c34-201487e809ae/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/80e404b7-673b-4ca8-ab69-1779f9685eec/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/e8ff781d-a445-4ed3-9790-9514a2eb45f0/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1495822f-a2a6-46f7-8e0b-48db278621d9/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8346da26-6494-4edb-945d-63a50a6e416b/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a1bf84a7-cebc-496b-acf2-411938b18d9f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/a080167b-6264-404b-b9b1-e5a68348299f/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/8dfb6f30-1ec1-497a-91e4-028a704b4f57/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/59d5bb2e-0d62-4116-a6bc-79cd5afe9246/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/602335f3-4d73-40f9-b8e2-5c5e25f32d62/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/ddfbf317-aa77-482e-a99d-eb975deb2fe7/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/f68e567f-67cf-4d4a-8c3e-a0dcee42f095/2" alt="" loading="lazy"></span><span class="tile"><img src="https://static-cdn.jtvnw.net/badges/v1/1b9b6fbf-9100-4b2c-9bdf-8be0f1456ff9/2" alt="" loading="lazy"></span></div></div></div>
+
+    <div class="wrap">
       <div class="nums">
         <div class="rv"><b class="count" data-to="450" data-suffix="+">450+</b><span>Twitch global badge sets tracked, each with its own page</span></div>
         <div class="rv" style="--d:90ms"><b class="count" data-to="5800" data-suffix="+">5,800+</b><span>channel campaign badges collected from live channels</span></div>
@@ -304,12 +323,26 @@
     </div>
   </section>
 
+  <!-- services -->
+  <section class="sec services" id="services">
+    <div class="wrap">
+      <p class="label rv"><i>02</i>Services</p>
+      <h2 class="split h-sec" data-split="words">What I can build <span class="mute">for you.</span></h2>
+      <div class="svc">
+        <article class="rv card-l" style="--d:0ms"><span class="n">01</span><h3>Websites</h3><p>Fast, responsive sites with a clean design, hand-coded or on WordPress, built to be found on Google.</p><ul><li>Design</li><li>Development</li><li>SEO basics</li></ul></article>
+        <article class="rv card-l" style="--d:90ms"><span class="n">02</span><h3>Web apps &amp; dashboards</h3><p>Data-heavy pages that stay easy to use: schedules, search and filters, live countdowns, light and dark themes.</p><ul><li>Live data</li><li>Search</li><li>Dashboards</li></ul></article>
+        <article class="rv card-l" style="--d:180ms"><span class="n">03</span><h3>Automation &amp; bots</h3><p>Scheduled jobs and integrations with APIs like Twitch, X and Discord, so updates and posts happen on their own.</p><ul><li>APIs</li><li>Bots</li><li>Scheduled jobs</li></ul></article>
+        <article class="rv card-l" style="--d:270ms"><span class="n">04</span><h3>Launch &amp; care</h3><p>Domain, hosting and deploys, then updates after launch, with every change tracked and easy to roll back.</p><ul><li>Hosting</li><li>Deploys</li><li>Updates</li></ul></article>
+      </div>
+    </div>
+  </section>
+
   <!-- about -->
   <section class="sec about" id="about">
     <div class="wrap sec-head">
-      <p class="label rv"><i>02</i>About</p>
+      <p class="label rv"><i>03</i>About</p>
       <div>
-        <p class="lead rv">I like building things end to end: deciding what a product should do, designing how it looks, writing the code and keeping it running. Badge Database started as a side project and grew into a website, a bot and a 24/7 stream that run on their own.</p>
+        <p class="lead big-lead rv">I like building things end to end: deciding what a product should do, designing how it looks, writing the code and keeping it running. Badge Database started as a side project and grew into a website, a bot and a 24/7 stream that run on their own.</p>
         <dl class="facts rv" style="--d:90ms">
           <div><dt>Focus</dt><dd>Web development<span>automation, data, WordPress</span></dd></div>
           <div><dt>Based in</dt><dd>Hungary</dd></div>
@@ -321,13 +354,12 @@
 
   <!-- contact -->
   <section class="sec contact" id="contact">
-    <div class="wrap sec-head">
-      <p class="label rv"><i>03</i>Contact</p>
-      <div>
-        <h2 class="split" data-split="words">Have a project in mind? Let's talk.</h2>
-        <div class="cta rv" style="--d:90ms">
-          <a class="btn mag" href="https://github.com/davidpzsny" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
-        </div>
+    <div class="wrap">
+      <p class="label rv"><i>04</i>Contact</p>
+      <h2 class="cta-title split" data-split="words">Have a project in mind?<br><span class="mute">Let's build it.</span></h2>
+      <div class="cta rv" style="--d:200ms">
+        <a class="btn mag big-btn" href="https://github.com/davidpzsny" target="_blank" rel="noopener">Get in touch on GitHub <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <a class="btn ghost mag" href="https://badgedatabase.com" target="_blank" rel="noopener">badgedatabase.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
     </div>
   </section>
@@ -335,7 +367,7 @@
 
 <footer>
   <div class="wrap giant-wrap"><div class="giant split" data-split="chars" aria-hidden="true">David Pozsonyi</div></div>
-  <div class="wrap">
+  <div class="wrap foot-row">
     <span>© 2026 David Pozsonyi</span>
     <span>Designed and built by hand · <a href="https://badgedatabase.com" target="_blank" rel="noopener">badgedatabase.com</a></span>
   </div>

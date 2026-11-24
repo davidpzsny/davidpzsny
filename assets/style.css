@@ -116,14 +116,6 @@ section{scroll-margin-top:84px}
 .nums b{display:block;font-size:52px;font-weight:300;letter-spacing:-.05em;line-height:.95}
 .nums span{display:block;margin-top:12px;font-size:13px;color:var(--muted);line-height:1.45}
 
-/* built */
-.built{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:72px;border-top:1px solid var(--line)}
-.built article{padding:30px 30px 34px 0;border-bottom:1px solid var(--line)}
-.built article:not(:nth-child(3n+1)){padding-left:30px;border-left:1px solid var(--line)}
-.built .n{font-size:12px;font-weight:700;color:var(--dim);font-variant-numeric:tabular-nums}
-.built h3{margin-top:14px}
-.built p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.65}
-
 /* how it works */
 .flow-wrap{margin-top:80px}
 .flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px;position:relative}
@@ -207,16 +199,6 @@ footer a:hover{color:var(--text)}
 /* ===================================================================================
    Showcase & motion
    =================================================================================== */
-/* hero product shot: tilts upright as the page scrolls (--t from 0 to 1, set by motion.js) */
-.hero{padding-top:104px;padding-bottom:40px}
-.tilt{margin-top:64px;perspective:1600px}
-.tilt .shot{margin-top:0;transform-origin:50% 0;
-  transform:rotateX(calc((1 - var(--t,1)) * 22deg)) scale(calc(.9 + var(--t,1) * .1)) translateY(calc((1 - var(--t,1)) * 30px));
-  box-shadow:0 60px 140px -60px rgba(139,92,246,.35),0 40px 100px -50px rgba(0,0,0,.9)}
-.js .tilt .shot.rv{transform:rotateX(26deg) scale(.86) translateY(60px)}
-.js .tilt .shot.rv.in{transform:rotateX(calc((1 - var(--t,1)) * 22deg)) scale(calc(.9 + var(--t,1) * .1)) translateY(calc((1 - var(--t,1)) * 30px))}
-.anim .tilt .shot.rv.in{transition:opacity .9s cubic-bezier(.2,.7,.2,1) var(--d,0ms)}   /* after the entrance the scroll drives it */
-
 /* mini home inside the hero shot */
 .m-hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:22px;align-items:center}
 .m-eyebrow{display:flex;align-items:center;gap:7px;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
@@ -253,31 +235,6 @@ footer a:hover{color:var(--text)}
 .js .proj-title.in .m-dot{transform:scale(1)}
 .live{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--mint);margin-right:8px;vertical-align:1px;box-shadow:0 0 0 0 rgba(134,201,163,.5);animation:ping 2.2s infinite}
 @keyframes ping{0%{box-shadow:0 0 0 0 rgba(134,201,163,.45)}70%{box-shadow:0 0 0 8px rgba(134,201,163,0)}100%{box-shadow:0 0 0 0 rgba(134,201,163,0)}}
-
-/* ---------- feature tour ---------- */
-.tour{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;margin-top:96px}
-.step{min-height:78vh;display:flex;flex-direction:column;justify-content:center;opacity:.28;transition:opacity .5s}
-.step.on{opacity:1}
-.step:first-child{min-height:60vh;justify-content:flex-start;padding-top:12vh}
-.step:last-child{min-height:70vh}
-.step .n{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-2)}
-.step h3{margin-top:14px;font-size:clamp(24px,2.6vw,34px);font-weight:600;letter-spacing:-.04em;line-height:1.08}
-.step p{margin-top:16px;color:var(--muted);font-size:16px;line-height:1.7;max-width:44ch}
-.tour-view{position:relative}
-.device{position:sticky;top:calc(50vh - 220px);border-radius:16px;border:1px solid var(--line-2);background:var(--bg-2);overflow:hidden;
-  box-shadow:0 50px 120px -50px rgba(0,0,0,.95),0 30px 80px -40px rgba(139,92,246,.25)}
-.device .chrome span{transition:opacity .3s}
-.screens{position:relative;height:420px;font-size:11.5px}
-.screen{position:absolute;inset:0;opacity:0;transform:translateY(18px) scale(.985);transition:opacity .55s ease,transform .7s cubic-bezier(.2,.7,.2,1);pointer-events:none;overflow:hidden}
-.screen.on{opacity:1;transform:none}
-.sc-pad{padding:20px 22px}
-.sc-h{font-size:22px;font-weight:600;letter-spacing:-.045em;line-height:1.05}
-.sc-crumb{font-size:10px;color:var(--muted);font-weight:600;margin-bottom:6px}
-.sc-filters{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;margin-top:12px}
-.sc-filters span{padding:4px 10px;border-radius:999px;color:var(--muted);font-weight:600;font-size:10.5px}
-.sc-filters span.on{background:rgba(255,255,255,.08);color:var(--text)}
-.screen .sched{margin-top:14px}
-.screen .bar{height:23px;margin-bottom:5px}.screen .bar img{width:16px;height:16px}
 
 /* badge page */
 .bp-top{display:flex;gap:18px;align-items:center}
@@ -369,32 +326,6 @@ footer a:hover{color:var(--text)}
 .js .big.rv{transform:translateY(60px);transition-duration:1.1s}
 .js .big.rv.in{transform:none}
 
-/* ---------- smaller screens ---------- */
-@media (max-width:980px){
-  .tour{grid-template-columns:1fr;gap:0;margin-top:48px}
-  .tour-view{display:none}
-  .step,.step:first-child,.step:last-child{min-height:0;opacity:1;padding:26px 0 34px;justify-content:flex-start}
-  .m-device{margin-bottom:24px;border-radius:14px;border:1px solid var(--line-2);background:var(--bg-2);overflow:hidden;box-shadow:0 30px 70px -40px rgba(0,0,0,.9)}
-  .m-device .screens{height:340px}
-}
-@media (max-width:720px){
-  .tilt{margin-top:44px}
-  .m-hero{grid-template-columns:1fr}.m-stream{display:none}
-  .m-hero .m-h{font-size:24px}
-  .work{padding-top:80px}
-  .screens,.m-device .screens{height:300px;font-size:10.5px}
-  .sc-pad{padding:14px}
-  .bp-grid{grid-template-columns:1fr}.bp-card.chat{display:none}
-  .ar-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ar-bar .sc-filters{display:none}
-  .ov-cols{grid-template-columns:1fr}.ov-col:first-child{display:none}
-  .ov-top{grid-template-columns:1fr auto}.ov-brand{display:none}
-  .toast{left:14px;right:14px;width:auto}
-  .step h3{font-size:24px}
-}
-@media (prefers-reduced-motion:reduce){
-  .screen{transition:none}.bar{transition:none}.live{animation:none}
-}
-
 /* ===================================================================================
    Header, ribbon and richer motion (v3)
    =================================================================================== */
@@ -439,12 +370,6 @@ html:not(.anim) .ribbon .track{animation:ribbon 60s linear infinite}
 /* counting numbers */
 .count{font-variant-numeric:tabular-nums}
 
-/* tour progress under the device's address bar */
-.tprog{height:2px;background:var(--line)}
-.tprog i{display:block;height:100%;background:var(--purple);transform-origin:0 50%;transform:scaleX(var(--tp,.1667));transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.step h3{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.step:not(.on) h3{transform:translateX(-8px)}
-
 /* How it works: a line draws through the four steps */
 .flow{isolation:isolate}
 .flow::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,var(--line-2),rgba(139,92,246,.6),var(--line-2));
@@ -474,3 +399,130 @@ footer{padding-top:64px}
 @media (max-width:720px){ .giant{font-size:11.4vw} }
 
 @media (prefers-reduced-motion:reduce){ .ribbon .track{animation:none!important} }
+
+/* ===================================================================================
+   v4: agency hero, 3D page gallery, services
+   =================================================================================== */
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;padding:150px 0 110px;isolation:isolate}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(46px,7.4vw,112px);letter-spacing:-.06em;line-height:.94;max-width:14ch}
+.hero-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:end;margin-top:48px}
+.hero-row .lead{margin:0;max-width:52ch}
+.hero-row .cta{margin:0;justify-content:flex-end}
+.btn svg{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.btn:hover svg{transform:translate(2px,-2px)}
+.btn.ghost:hover svg{transform:translateY(2px)}
+.proof{list-style:none;display:flex;flex-wrap:wrap;gap:10px 0;margin-top:72px;padding-top:24px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+.proof li{padding:0 26px;border-left:1px solid var(--line)}
+.proof li:first-child{padding-left:0;border-left:0}
+.proof b{color:var(--text);font-weight:650;margin-right:4px}
+/* moving light and a fine grid behind the intro */
+.glow{position:absolute;inset:-20% -10% auto;height:120%;z-index:-1;pointer-events:none;filter:blur(70px);opacity:.75}
+.glow i{position:absolute;border-radius:50%}
+.glow i:first-child{width:46vw;height:46vw;max-width:720px;max-height:720px;left:calc(var(--gx,60%) - 23vw);top:calc(var(--gy,30%) - 23vw);
+  background:radial-gradient(circle,rgba(139,92,246,.38),rgba(139,92,246,0) 65%);transition:left 1.2s cubic-bezier(.2,.7,.2,1),top 1.2s cubic-bezier(.2,.7,.2,1)}
+.glow i:last-child{width:34vw;height:34vw;right:-6vw;top:8%;background:radial-gradient(circle,rgba(52,211,153,.14),transparent 65%);animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(-12vw,10vh)}}
+.grid-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 75%)}
+
+/* ---------- 3D gallery of the site's pages ---------- */
+.gallery{position:relative;margin-top:72px}
+.anim .gallery{height:calc(100vh + var(--gn,6) * 62vh)}
+.g-pin{position:relative;overflow:hidden}
+.anim .g-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center}
+.g-top{display:flex;align-items:center;gap:22px;margin-bottom:28px}
+.g-count{display:flex;align-items:baseline;gap:6px;font-variant-numeric:tabular-nums}
+.g-count b{font-size:28px;font-weight:600;letter-spacing:-.04em}
+.g-count span{color:var(--dim);font-weight:600;font-size:14px}
+.g-bar{flex:1;height:1px;background:var(--line-2);position:relative;overflow:hidden}
+.g-bar i{position:absolute;inset:0;background:linear-gradient(90deg,var(--purple),var(--purple-2));transform-origin:0 50%;transform:scaleX(var(--gp,0))}
+.g-hint{font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.g-stage{perspective:1500px;perspective-origin:50% 40%}
+.g-track{display:flex;gap:var(--gap,56px);padding:0 calc((100vw - var(--cw,900px)) / 2);transform-style:preserve-3d;will-change:transform}
+.card{flex:none;width:var(--cw,900px);margin:0;transform-style:preserve-3d;will-change:transform,opacity}
+.frame{border-radius:16px;border:1px solid var(--line-2);background:var(--bg-2);overflow:hidden;
+  box-shadow:0 60px 120px -60px rgba(0,0,0,.95),0 30px 90px -40px rgba(139,92,246,.28)}
+.viewport{position:relative;height:calc(450px * var(--cs,1.25));overflow:hidden}
+.canvas{position:absolute;left:0;top:0;width:720px;height:450px;transform:scale(var(--cs,1.25));transform-origin:0 0;font-size:11.5px}
+.canvas .screen{position:absolute;inset:0;opacity:1;transform:none;overflow:hidden}
+.screen.home .mini{padding-bottom:18px}
+.screen.home .m-body{padding:18px 20px 0}
+.screen.home .m-hero .m-h{font-size:24px}
+.screen.home .m-stats{margin-top:12px}.screen.home .m-stats b{font-size:22px}
+.screen.home .sched{margin-top:12px}
+.screen.home .bar{height:21px;margin-bottom:4px}.screen.home .bar img{width:15px;height:15px}
+figcaption{display:grid;grid-template-columns:auto 1fr;gap:4px 22px;align-items:baseline;margin-top:24px;transition:opacity .5s}
+figcaption .n{grid-row:span 2;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-2);white-space:nowrap}
+figcaption b{font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.04em;line-height:1.1}
+figcaption .t{color:var(--muted);font-size:15px;line-height:1.6;max-width:60ch}
+.anim .card:not(.on) figcaption{opacity:0}
+/* the cards' own small animations replay once when a card first reaches the middle */
+.canvas .screen:not(.on) .a-it{opacity:0;transform:translateY(10px)}
+
+/* without motion: the pages simply stack */
+html:not(.anim) .g-track{flex-direction:column;padding:0 40px;gap:72px;align-items:center}
+html:not(.anim) .card{width:min(100%,900px)}
+html:not(.anim) .g-top{display:none}
+
+/* ---------- services ---------- */
+.h-sec{font-size:clamp(38px,5.4vw,76px);font-weight:600;letter-spacing:-.055em;line-height:.98;margin-top:22px}
+.svc{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:64px}
+.card-l{position:relative;overflow:hidden;padding:28px 24px 26px;border-radius:18px;border:1px solid var(--line);background:var(--panel);
+  transition:border-color .3s,transform .5s cubic-bezier(.2,.7,.2,1)}
+.card-l::before{content:"";position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,0%),rgba(139,92,246,.16),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card-l:hover{border-color:rgba(139,92,246,.45);transform:translateY(-4px)}
+.card-l:hover::before{opacity:1}
+.card-l .n{font-size:12px;font-weight:700;color:var(--purple-2);font-variant-numeric:tabular-nums}
+.card-l h3{margin-top:44px;font-size:20px;font-weight:600;letter-spacing:-.03em}
+.card-l p{margin-top:10px;color:var(--muted);font-size:14.5px;line-height:1.65}
+.card-l ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.card-l li{padding:4px 10px;border-radius:999px;border:1px solid var(--line-2);font-size:12px;font-weight:600;color:var(--muted)}
+
+/* ---------- about & contact ---------- */
+.big-lead{font-size:clamp(20px,2.1vw,26px);line-height:1.5;color:var(--text);letter-spacing:-.02em;max-width:34ch}
+.cta-title{font-size:clamp(46px,7.4vw,112px);font-weight:600;letter-spacing:-.06em;line-height:.94;margin-top:22px}
+.contact .cta{margin-top:48px}
+.big-btn{padding:16px 30px;font-size:16px}
+.contact{padding-bottom:120px}
+.foot-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+
+/* inner page styles of the gallery screens */
+.sc-pad{padding:20px 22px}
+.sc-h{font-size:22px;font-weight:600;letter-spacing:-.045em;line-height:1.05}
+.sc-crumb{font-size:10px;color:var(--muted);font-weight:600;margin-bottom:6px}
+.sc-filters{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:999px;margin-top:12px}
+.sc-filters span{padding:4px 10px;border-radius:999px;color:var(--muted);font-weight:600;font-size:10.5px}
+.sc-filters span.on{background:rgba(255,255,255,.08);color:var(--text)}
+.screen .sched{margin-top:14px}
+.screen .bar{height:23px;margin-bottom:5px}.screen .bar img{width:16px;height:16px}
+.anim .g-pin{padding-top:68px;box-sizing:border-box}
+/* chat preview: keep "YourName: message" on one flowing line */
+.msg{display:block;line-height:1.5}
+.msg img{display:inline-block;vertical-align:-3px;margin-right:6px}
+
+/* ---------- responsive ---------- */
+@media (max-width:980px){
+  .hero-row{grid-template-columns:1fr;gap:28px}
+  .hero-row .cta{justify-content:flex-start}
+  .svc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  figcaption{grid-template-columns:1fr}
+  figcaption .n{grid-row:auto}
+}
+@media (max-width:720px){
+  .hero{padding:96px 0 72px}
+  .proof{margin-top:48px;font-size:13px}
+  .proof li{padding:0 14px}
+  .proof li:nth-child(3){padding-left:0;border-left:0}
+  .svc{grid-template-columns:1fr}
+  .card-l h3{margin-top:28px}
+  .anim .gallery{height:calc(100vh + var(--gn,6) * 52vh)}
+  .g-top{margin-bottom:18px}
+  figcaption{margin-top:18px}
+  figcaption .t{font-size:14px}
+  html:not(.anim) .g-track{padding:0 20px}
+}
+@media (prefers-reduced-motion:reduce){ .glow i{transition:none;animation:none} }
