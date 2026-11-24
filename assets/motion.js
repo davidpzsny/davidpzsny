@@ -1,7 +1,7 @@
 /* Page motion. Decoration on top of a page that works without it:
    - .rv elements fade up and .io elements get "in" when they come into view; .split headlines rise word by word,
    - numbers count up, the badge ribbon runs (faster while you scroll), a light follows the cursor in the intro,
-   - the showcase windows lean in from their side and straighten up in the middle of the screen,
+   - the showcase windows spin in from the right, face you in the middle and spin out to the left,
    - buttons lean towards the cursor, cards light up under it, countdowns and the overlay clock tick.
    Visitors who prefer reduced motion get the finished page straight away. */
 (function(){
@@ -35,7 +35,7 @@
   });
 
   /* ---------- showcase windows: scale each page replica to its window ---------- */
-  var macs = $$('.mac'), rows = $$('.sc-row');
+  var macs = $$('.mac'), rows = $$('.sc-row'), texts = rows.map(function(r){ return r.querySelector('.sc-text'); });
   function sizeWindows(){
     macs.forEach(function(m){ var w = m.clientWidth; if(w) m.style.setProperty('--cs', (w / 720).toFixed(4)); });
   }
@@ -79,17 +79,31 @@
         ribbon.style.transform = 'translate3d(' + (-x).toFixed(2) + 'px,0,0)';
       }
       if(bar){ var max = root.scrollHeight - innerHeight; bar.style.setProperty('--sp', (max > 0 ? y / max : 0).toFixed(4)); }
-      // showcase: a window leans back on its own side while it comes in and stands up straight in the middle
+      // showcase: each window spins in from the right, faces you in the middle of the screen, and spins on out to the left
+      var vw = document.documentElement.clientWidth;
       for(var w = 0; w < rows.length; w++){
         var row = rows[w], m = macs[w], rr = row.getBoundingClientRect();
-        if(rr.bottom < -200 || rr.top > innerHeight + 200) continue;
-        var k = clamp(((rr.top + rr.height / 2) - innerHeight / 2) / innerHeight, -1, 1), side = row.classList.contains('sc-r') ? -1 : 1;
-        var ease = k * Math.abs(k) * 0.6 + k * 0.4;
-        m.style.setProperty('--ry', (side * ease * 16).toFixed(2) + 'deg');
-        m.style.setProperty('--rx', (ease * 9).toFixed(2) + 'deg');
-        m.style.setProperty('--ty', (ease * 60).toFixed(1) + 'px');
-        m.style.setProperty('--sc', (1 - Math.abs(ease) * 0.07).toFixed(4));
-        if(Math.abs(k) < 0.32){ var sc0 = m.querySelector('.screen'); if(sc0 && !sc0.classList.contains('on')) sc0.classList.add('on'); }
+        if(rr.bottom < -innerHeight || rr.top > innerHeight * 2){ m.style.setProperty('--op', 0); continue; }
+        var stacked = vw <= 980, tx = texts[w];   // on phones the text sits under its window, so each follows its own centre
+        var mc = stacked ? rr.top + m.offsetHeight / 2 : rr.top + rr.height / 2;
+        var k = clamp((mc - innerHeight / 2) / (innerHeight * 0.8), -1, 1);   // +1 coming in from below, -1 leaving at the top
+        var a = Math.max(0, Math.abs(k) - 0.14) / 0.86, e = (k < 0 ? -1 : 1) * a * a * (3 - 2 * a);   // flat for a while in the middle
+        m.style.setProperty('--tx', (e * vw * 0.42).toFixed(1) + 'px');
+        m.style.setProperty('--tz', (-Math.abs(e) * 420).toFixed(1) + 'px');
+        m.style.setProperty('--ty', (e * 40).toFixed(1) + 'px');
+        m.style.setProperty('--ry', (-e * 78).toFixed(2) + 'deg');
+        m.style.setProperty('--rx', (Math.abs(e) * 6).toFixed(2) + 'deg');
+        m.style.setProperty('--rz', (-e * 3).toFixed(2) + 'deg');
+        m.style.setProperty('--sc', (1 - Math.abs(e) * 0.12).toFixed(4));
+        m.style.setProperty('--op', (1 - Math.pow(Math.abs(e), 3) * 0.85).toFixed(3));
+        // the text steps aside while its window spins past it, and is fully there once the window faces you
+        if(tx){
+          var kt = stacked ? clamp(((rr.bottom - tx.offsetHeight / 2) - innerHeight / 2) / (innerHeight * 0.8), -1, 1) : k;
+          var tq = clamp((Math.abs(kt) - 0.3) / 0.45), ts = tq * tq * (3 - 2 * tq);
+          tx.style.setProperty('--top', (1 - ts * 0.9).toFixed(3));
+          tx.style.setProperty('--ttx', ((kt < 0 ? -1 : 1) * ts * Math.min(70, vw * 0.05)).toFixed(1) + 'px');
+        }
+        if(Math.abs(k) < 0.3){ var sc0 = m.querySelector('.screen'); if(sc0 && !sc0.classList.contains('on')) sc0.classList.add('on'); }
       }
       requestAnimationFrame(loop);
     }
