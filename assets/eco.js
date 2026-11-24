@@ -58,7 +58,7 @@
       ['end', '⏳ Ending soon: <b>Warrior Jar Alexander</b> ends in 24 hours.', 'Ending soon', 'Warrior Jar Alexander', [BADGES[5][1]]]];
     var i = 0, t = null, mins = [1, 4, 9, 15, 23, 31];
     function post(animate){
-      var p = posts[i++ % posts.length], el = document.createElement('div'), cls = p[0] === 'add' ? '' : p[0];
+      var p = posts[i++ % posts.length], el = document.createElement('div'), cls = p[0] === 'add' ? '' : 'is-' + p[0];   // is-live / is-end (plain .live is the status dot)
       el.className = 'xp'; if(!animate) el.style.animation = 'none';
       el.innerHTML = '<img src="' + LOGO + '" alt=""><div class="xp-m"><div class="xp-h"><b>Badge Database</b>@BadgeDatabase · now</div>' +
         '<div class="xp-t">' + p[1] + '</div>' +
@@ -89,7 +89,7 @@
       add('<span class="dc-av"><img src="' + LOGO + '" alt=""></span><div><div class="dc-n">Badge Database<i>APP</i></div><div class="dc-embed ' + (cls || '') + '">' + (tag ? '<span class="tag">' + esc(tag) + '</span>' : '') + inner + '</div></div>');
     }
     function exchange(s, instant){
-      if(s[0] === 'alert'){ botSays('<b>' + esc(s[3]) + '</b>' + s[4], s[1] === 'add' ? '' : s[1], s[2]); return; }
+      if(s[0] === 'alert'){ botSays('<b>' + esc(s[3]) + '</b>' + s[4], s[1] === 'add' ? '' : 'is-' + s[1], s[2]); return; }
       add('<span class="dc-av">' + esc(s[0][0].toUpperCase()) + '</span><div><div class="dc-n">' + esc(s[0]) + '</div><span class="dc-cmd">' + esc(s[1]) + '</span></div>');
       var reply = function(){ botSays('<b>' + esc(s[2]) + '</b>' + s[3]); };
       instant ? reply() : T.add(reply, 650);

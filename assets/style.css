@@ -744,16 +744,16 @@ main{overflow-x:clip}
 
 /* ---------- X posts: added / live now / ending soon ---------- */
 .xp-card{position:relative}
-.xp-tag{display:inline-block;margin-bottom:3px;padding:1px 6px;border-radius:4px;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(139,92,246,.25);color:#c4b5fd}
-.xp-tag.live{background:rgba(52,211,153,.18);color:#6ee7b7}
-.xp-tag.end{background:rgba(229,72,77,.22);color:#fca5a5}
-.xp-card.live{background:radial-gradient(circle at 20% 50%,rgba(52,211,153,.16),transparent 60%),#0e0e10}
-.xp-card.end{background:radial-gradient(circle at 20% 50%,rgba(229,72,77,.18),transparent 60%),#0e0e10}
+.xp-tag{display:inline-block;white-space:nowrap;margin-bottom:3px;padding:1px 6px;border-radius:4px;font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:rgba(139,92,246,.25);color:#c4b5fd}
+.xp-tag.is-live{background:rgba(52,211,153,.18);color:#6ee7b7}
+.xp-tag.is-end{background:rgba(229,72,77,.22);color:#fca5a5}
+.xp-card.is-live{background:radial-gradient(circle at 20% 50%,rgba(52,211,153,.16),transparent 60%),#0e0e10}
+.xp-card.is-end{background:radial-gradient(circle at 20% 50%,rgba(229,72,77,.18),transparent 60%),#0e0e10}
 .xp-card .imgs{display:flex;gap:3px}.xp-card .imgs img{width:26px;height:26px}
 /* Discord announcement embeds */
-.dc-embed.live{border-left-color:#34d399}.dc-embed.end{border-left-color:#e5484d}
-.dc-embed .tag{display:inline-block;margin-bottom:4px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c4b5fd}
-.dc-embed.live .tag{color:#6ee7b7}.dc-embed.end .tag{color:#fca5a5}
+.dc-embed.is-live{border-left-color:#34d399}.dc-embed.is-end{border-left-color:#e5484d}
+.dc-embed .tag{display:inline-block;white-space:nowrap;margin-bottom:4px;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c4b5fd}
+.dc-embed.is-live .tag{color:#6ee7b7}.dc-embed.is-end .tag{color:#fca5a5}
 .xp-card > span:last-child{min-width:0;flex:1;display:flex;flex-direction:column;align-items:flex-start}
 .xp-card b{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .xp-card .imgs{flex:none}
