@@ -110,8 +110,9 @@ section{scroll-margin-top:84px}
 .bar.paid{background:rgba(139,92,246,.17);border-color:rgba(139,92,246,.42)}
 
 /* numbers */
-.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.nums div{padding:28px 28px 26px;border-left:1px solid var(--line)}.nums div:first-child{border-left:0;padding-left:0}
+.nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.nums div{padding:28px 28px 26px;border-left:1px solid var(--line)}.nums div:nth-child(3n+1){border-left:0;padding-left:0}
+.nums div:nth-child(n+4){border-top:1px solid var(--line)}
 .nums b{display:block;font-size:52px;font-weight:300;letter-spacing:-.05em;line-height:.95}
 .nums span{display:block;margin-top:12px;font-size:13px;color:var(--muted);line-height:1.45}
 
@@ -188,7 +189,7 @@ footer a:hover{color:var(--text)}
   .bar small{display:none}
   .bar{width:auto!important}
   .nums{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .nums div{padding:22px 4px 20px 18px}
+  .nums div,.nums div:nth-child(3n+1){padding:22px 4px 20px 18px;border-left:1px solid var(--line)}
   .nums div:nth-child(odd){border-left:0;padding-left:0}
   .nums div:nth-child(n+3){border-top:1px solid var(--line)}
   .nums b{font-size:40px}
