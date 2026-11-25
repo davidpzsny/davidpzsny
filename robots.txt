@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davidpzsny.github.io/davidpzsny/sitemap.xml

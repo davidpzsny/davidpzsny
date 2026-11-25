@@ -55,6 +55,8 @@
     $$('.rv, .io, .split, .count, .sc-row').forEach(function(el){ if(!el.classList.contains('pz')) io.observe(el); });
     requestAnimationFrame(function(){ $$('.hero .rv, .hero .split').forEach(function(el){ el.classList.add('in'); io.unobserve(el); }); });
 
+    var steps = document.getElementById('steps'), stepEls = steps ? $$('.step', steps) : [];
+
     /* ---------- Projects: fly through the "o" of the title ---------- */
     var zoom = document.getElementById('zoom'), zPin, zTitle, zPortal, zO, zPz = [], zOn = false, zA = {x: 0, y: 0}, zR = {x: 10, y: 10}, zW = 0, zH = 0, zMax = 20, pzIn = false;
     if(zoom){
@@ -175,6 +177,19 @@
         }
         if(Math.abs(k) < 0.3){ var sc0 = m.querySelector('.screen'); if(sc0 && !sc0.classList.contains('on')) sc0.classList.add('on'); }
       }
+      // process: the line fills in as you scroll and each step lights up when the line reaches it
+      if(steps){
+        var sr = steps.getBoundingClientRect();
+        if(sr.bottom > -100 && sr.top < innerHeight + 100){
+          var vert = vw <= 980;
+          var sf = vert ? clamp((innerHeight * 0.66 - sr.top) / sr.height) : clamp((innerHeight * 0.82 - sr.top) / (innerHeight * 0.42));
+          steps.style.setProperty('--sf', sf.toFixed(3));
+          for(var si = 0; si < stepEls.length; si++){
+            var st = stepEls[si], at = vert ? st.offsetTop / Math.max(1, steps.clientHeight) : st.offsetLeft / Math.max(1, steps.clientWidth);
+            st.classList.toggle('lit', sf >= at - 0.001);
+          }
+        }
+      }
       requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
@@ -210,7 +225,7 @@
     var no = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting) links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); }); });
     }, { rootMargin: '-45% 0px -50% 0px' });
-    ['work', 'services', 'about', 'contact'].forEach(function(id){ var s = document.getElementById(id); if(s) no.observe(s); });
+    ['work', 'services', 'process', 'about', 'faq', 'contact'].forEach(function(id){ var s = document.getElementById(id); if(s) no.observe(s); });   // faq has no link, so nothing is lit there
   }
 
   /* ---------- live countdowns and the overlay clock ---------- */
